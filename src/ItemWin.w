@@ -39,6 +39,11 @@ CREATE WIDGET-POOL.
 
 /* Local Variable Definitions ---                                       */
 
+USING business.ItemEntity FROM PROPATH.
+USING business.EntityFactory FROM PROPATH.
+
+{business/ItemDataset.i}
+
 /* _UIB-CODE-BLOCK-END */
 &ANALYZE-RESUME
 
@@ -218,11 +223,18 @@ END.
 &ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL BUTTON-3 C-Win
 ON CHOOSE OF BUTTON-3 IN FRAME DEFAULT-FRAME /* Get Item */
 DO:
-  ASSIGN FILL-IN_ItemNum. 
-  FIND FIRST Item WHERE Item.ItemNum = INTEGER(FILL-IN_ItemNum) NO-LOCK NO-ERROR.
-  IF AVAILABLE Item THEN
+  VAR EntityFactory objFactory = EntityFactory:GetInstance().
+  VAR ItemEntity objItemEntity = objFactory:GetItemEntity().
+  VAR LOGICAL lFound.
+
+  ASSIGN FILL-IN_ItemNum.
+
+  lFound = objItemEntity:GetItemByNumber(INTEGER(FILL-IN_ItemNum), OUTPUT DATASET dsItem).
+
+  IF lFound THEN
   DO:
-     FILL-IN_Price = Item.Price.
+     FIND FIRST ttItem.
+     FILL-IN_Price = ttItem.Price.
      DISPLAY FILL-IN_Price WITH FRAME {&frame-name}.
   END.
   ELSE
@@ -238,24 +250,42 @@ END.
 &ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL BUTTON-4 C-Win
 ON CHOOSE OF BUTTON-4 IN FRAME DEFAULT-FRAME /* Save */
 DO:
-  VAR DECIMAL dTotal.
-  FIND FIRST Item WHERE Item.ItemNum = INTEGER(FILL-IN_ItemNum) EXCLUSIVE-LOCK NO-ERROR.
-  IF AVAILABLE Item THEN
+  VAR EntityFactory objFactory = EntityFactory:GetInstance().
+  VAR ItemEntity objItemEntity = objFactory:GetItemEntity().
+  VAR LOGICAL lFound.
+  VAR LOGICAL isValid.
+  VAR CHARACTER cErrorMessage.
+
+  ASSIGN FILL-IN_Price.
+
+  lFound = objItemEntity:GetItemByNumber(INTEGER(FILL-IN_ItemNum), OUTPUT DATASET dsItem).
+
+  IF lFound THEN
   DO:
-     ASSIGN FILL-IN_Price.
-     IF FILL-IN_Price = 0 THEN
-     DO:
-         MESSAGE 'Price cannot be empty' VIEW-AS ALERT-BOX.
-         RETURN NO-APPLY. 
-     END.
-     dTotal = Item.OnHand * FILL-IN_Price.
-     IF dTotal > 6000 THEN
-     DO:
-         MESSAGE 'Total value onhand will be ' dTotal 
-                 ', should not be larger than 6000' VIEW-AS ALERT-BOX.
+     FIND FIRST ttItem.
+
+     /* Enable change tracking */
+     TEMP-TABLE ttItem:TRACKING-CHANGES = TRUE.
+
+     /* Modify data */
+     ttItem.Price = FILL-IN_Price.
+
+     /* Validate before saving */
+     isValid = objItemEntity:ValidateItem(
+         INPUT-OUTPUT DATASET dsItem BY-REFERENCE,
+         OUTPUT cErrorMessage
+     ).
+
+     IF isValid THEN
+         objItemEntity:UpdateItem(INPUT-OUTPUT DATASET dsItem BY-REFERENCE).
+     ELSE DO:
+         MESSAGE cErrorMessage VIEW-AS ALERT-BOX.
+         TEMP-TABLE ttItem:TRACKING-CHANGES = FALSE.
          RETURN NO-APPLY.
      END.
-     Item.Price = FILL-IN_Price.    
+
+     /* Disable change tracking */
+     TEMP-TABLE ttItem:TRACKING-CHANGES = FALSE.
   END.
   ELSE
      MESSAGE 'Item not found' VIEW-AS ALERT-BOX.
