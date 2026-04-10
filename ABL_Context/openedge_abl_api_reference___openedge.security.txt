@@ -1,0 +1,179 @@
+OpenEdge.Security.ICredentials
+
+OpenEdge ABL API Reference - OpenEdge.Security.ICredentials
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Security.package
+
+OpenEdge ABL API Reference - OpenEdge.Security.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.PAMStatusEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Security.Principal
+
+OpenEdge ABL API Reference - OpenEdge.Security.Principal
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.IAuthProvider
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.IAuthProviderAdmin
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.IPasswordPolicyProvider
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.ProviderConfig
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.UnimplementedPolicyProvider
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.UserTableAuthProvider
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.Provider.UserTablePasswordProvider
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.STS.EventDispatcher
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.STS.IErrorProvider
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.STS.IEventProvider
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Security.STS.IPolicyProvider
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Security.STS.package
+
+OpenEdge ABL API Reference - OpenEdge.Security.STS.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26

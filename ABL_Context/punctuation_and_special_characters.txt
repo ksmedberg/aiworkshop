@@ -1,0 +1,3052 @@
+Handle-based Object Events Reference
+
+Events are run-time conditions that cause the ABL Virtual Machine
+(AVM) to respond by executing specified ABL code or by activating certain
+system behaviors. Events can occur directly as a result of ABL,
+user, or other external actions that affect the application. However
+events occur, the resulting executed code or activated behavior
+is referred to as event driven.
+
+There are a number of factors that determine how ABL interprets
+events. The most important factor is the type of widget or handle
+receiving the event. Some widget types have default system actions
+in response to certain events. For example, the default system action
+for the A event on a fill-in widget is to insert the letter A into
+the fill-in at the current cursor location; however, there is no default
+system action for the A event on a button widget.
+
+Different widget attribute settings determine how ABL interprets
+and prioritizes events. If you enable a widget for direct manipulation,
+direct manipulation events take priority over all other events.
+For example, if you write a trigger for a CHOOSE event and another
+for a SELECT event on a selectable widget, the AVM only executes
+the SELECT event trigger when you click on that widget.
+
+This section describes the following topics for user-interface
+events only:
+
+ Introduction to ABL events
+ Event tables
+
+You may consider an event to be supported for all interfaces,
+on all operating systems, and for SpeedScript unless otherwise indicated
+in the reference entry. User-interface events do not apply to SpeedScript
+programming.
+
+For information on the following events, see the relevant documentation:
+
+ DDE-NOTIFY — OpenEdge Programming
+  Interfaces
+ PROCEDURE-COMPLETE — ABL Reference
+
+The following descriptions refer to both compile-time and run-time behavior,
+features that the language generally supports and determines at compile
+time and actions directed by using these features at run time. When describing
+compile-time features or actions, this section references ABL or
+the ABL compiler. When describing ABL or event-driven actions taken
+at run time, this section references the AVM.
+
+
+
+
+- Datetime subtraction operator
+
+Subtracts a number of milliseconds from a DATETIME
+or a DATETIME-TZ to produce another DATETIME or DATETIME-TZ, or
+subtracts one DATETIME or DATETIME-TZ from another to produce an
+INT64 result in milliseconds.
+
+Syntax
+
+datetime: An expression that evaluates to a DATETIME value.
+
+milliseconds: An expression that evaluates to an integer value specifying
+    a number of milliseconds.
+
+datetime-tz: An expression that evaluates to a DATETIME-TZ value.
+
+Example
+
+This
+example returns the date and time exactly 24 hours ago (dtTime).
+It then recalculates the number of hours (iHours)
+from the number of milliseconds (iMsec) since then
+and displays the result:
+
+Notes
+
+ To
+  get the number of days between two DATETIME or DATETIME-TZ variable
+  values, use the DATE function.
+  For example:
+
+  This operation does not take the time portion
+  into account.
+
+  To ensure the correct result when working with
+  two DATETIME-TZ values, convert one of the values to the time zone
+  of the other. For example:
+
+ To subtract a specific number of days and milliseconds from
+  a DATETIME, use the DATETIME function.
+  For example:
+
+  The DATETIME function ensures the time portion
+  remains within a valid range by borrowing a day from the date portion,
+  when necessary.
+• To subtract a specific number of days and milliseconds from
+  a DATETIME-TZ, use the DATETIME-TZ function. For
+  example:
+
+  The DATETIME-TZ function ensures the time portion
+  remains within a valid range by borrowing a day from the date portion,
+  when necessary.
+
+See also
+• Date subtraction operator, + Datetime addition operator, ADD-INTERVAL function, DATETIME function, DATETIME-TZ function, INTERVAL function
+
+
+
+
+- Date subtraction operator
+
+Subtracts a number of days from a date to produce
+a date result, or subtracts one date from another to produce an
+INTEGER result that represents the number of days between the two
+dates.
+
+Syntax
+
+date: An expression that evaluates to a DATE value.
+
+days: An expression with a value of the number of days you want to subtract
+    from date.
+
+Example
+
+This
+procedure finds all unshipped orders. If the promised date is more than
+one week ago, the procedure finds the customers who placed the order
+and displays the order and customer data.
+
+r-dsub.p
+
+See also
+• Date addition operator, - Datetime subtraction operator, ADD-INTERVAL function, DATE function, INTERVAL function
+
+
+
+
+-= Subtraction assignment operator
+
+Subtracts a value from an ABL data element. Provides a shorter
+syntax for applying numeric and date-based subtraction.
+
+Syntax
+
+field -= expression is equivalent
+to field = field - (expression).
+
+Note: Spaces are required around the assignment operator. You cannot write
+field-=expression.
+
+Note: This syntax can also be
+used in the ASSIGN, BUFFER-COPY,
+SET, and UPDATE statements.
+
+field: The name of an ABL data element from which you want to subtract the value
+    of expression, and that is defined with
+    a data type that is compatible with the data type of expression. Valid data types are INTEGER,
+    INT64, DECIMAL, DATE, DATETIME, and DATETIME-TZ. The data element can
+    include:
+
+     A database or temp-table field
+     A variable scoped to the current procedure,
+      user-defined function, or method of a class, or an accessible
+      class-based variable data member, including a subscripted array
+      variable
+     A parameter defined for the current procedure,
+      user-defined function, or method of a class, including a subscripted
+      array parameter
+     A writable class-based or COM property, including a
+      subscripted array property
+     A writable handle attribute or system handle
+      attribute
+     ABL syntax that specifies the CURRENT-VALUE statement, DYNAMIC-CURRENT-VALUE statement, DYNAMIC-PROPERTY statement, EXTENT statement, or LENGTH statement
+
+expression: An expression with a data type that is consistent with the data type of
+    field.
+
+NO-ERROR: The NO-ERROR option is used to prevent the statement from raising ERROR and displaying error messages. With the
+    NO-ERROR option, if ERROR is raised, then the ABL element on the
+    left-hand side of the assignment is unchanged.
+
+Note: For more information on the rules related to assignment, see the notes section in
+the Assignment (=) statement reference entry.
+
+Examples
+
+The following example shows how to do integer subtraction using the
+-= assignment operator.
+
+The following example uses the -=
+assignment operator on variables with mixed numeric data types.
+
+The following example uses the -=
+assignment operator to subtract 7 days from a DATE variable.
+
+The following example uses the -=
+assignment operator to update a database field.
+
+The following example uses the -=
+assignment operator to update a class property:
+
+See also
+
+Assignment (=) statement, ASSIGN statement, - Subtraction operator, - Date subtraction operator, - Datetime subtraction operator
+
+
+
+
+- Subtraction operator
+
+Subtracts one numeric expression from another numeric
+expression.
+
+Syntax
+
+expression: An expression with a numeric value.
+
+Example
+
+The r-subt.p procedure
+determines the amount of inventory available by subtracting the
+amount allocated from the total on hand.
+
+r-subt.p
+
+Note
+
+Subtracting
+one decimal expression from another produces a DECIMAL value. Subtracting
+one INTEGER expression from another produces an INTEGER. Subtracting
+an integer expression (INTEGER or INT64) from a decimal expression
+(or subtracting a decimal expression from an integer expression)
+produces a DECIMAL value. Subtracting a mix of INTEGER and INT64 expressions
+produces an INT64 value.
+
+See also
+• Addition operator
+
+
+
+
+- Unary negative operator
+
+Reverses the sign of a numeric expression.
+Do not confuse this operator with the subtraction operator that
+subtracts one expression from another.
+
+Syntax
+
+expression: An expression whose value is numeric.
+
+Example
+
+If
+you supply a negative value for the variable fx,
+the r-uneg.p procedure uses the unary negative
+operator (-) to reverse the sign of fx, producing
+the absolute value of fx (fabs-x).
+
+r-uneg.p
+
+See also
+• Unary positive operator
+
+
+
+
+. Punctuation
+
+ABL Syntax Reference -. Punctuation
+The period (.) symbol ends all statements,
+including block header statements. The DO, FOR, and REPEAT statements
+can end with a period or a colon.
+
+It is also serves as a
+separator between:
+
+ A filename and a filename extension
+  (suffix) in most operating system platforms, for example, Letter.txt
+ The elements of a qualified database table or buffer field name, for
+  example, Customer.CustNum or Sports2020.Customer or Sports2020.Customer.CustNum
+ The elements of an ABL package name or.NET namespace,
+  for example, Progress.Lang, Progress.Windows,
+  or System.Collections
+ An ABL package or.NET namespace and the name of a class
+  or interface defined in that package or namespace, for example, Progress.Lang.Error, Progress.Windows.Form,
+  or System.Collections.SortedList
+
+See: Punctuation for
+rules to help you decide whether to use period, colon, or double
+colon syntax.
+
+See also: Punctuation,:: Punctuation, Type-name syntax
+
+
+
+
+AMPERSAND GLOBAL-DEFINE preprocessor directive
+
+ABL Syntax Reference - &GLOBAL-DEFINE preprocessor directive
+Globally defines a compile-time constant (preprocessor
+name).
+
+Syntax
+
+preprocessor-name: The preprocessor name (compile-time constant) that you supply. ABL
+    reserved keywords are allowed, but cannot be used in preprocessor expressions.
+
+definition: A string of characters (or preprocessor references that evaluate to a
+    string of characters) whose content the preprocessor substitutes for preprocessor-name during compilation. If the definition is
+    longer than one line, a tilde (~) at the end of a line indicates
+    continuation to the next line.
+
+Examples
+
+In this example, the preprocessor name MAX-EXPENSE is defined as the text string "5000":
+
+Wherever the reference {&MAX-EXPENSE}
+appears in the source code, the preprocessor substitutes the text string
+"5000". For example, the preprocessor changes this line of code:
+
+To this line:
+
+Notes
+
+ You must place the &GLOBAL-DEFINE
+  directive at the beginning of a line, preceded only by blanks, tab characters, or
+  multi-line comments (/ comment /).
+ The preprocessor trims all leading and trailing spaces from definition.
+ The syntax of the &GLOBAL-DEFINE and
+  &SCOPED-DEFINE directives are identical but these directives are
+  used differently.
+ If duplicate &GLOBAL-DEFINE directives are
+  specified for the same preprocessor-name, the last
+  &GLOBAL-DEFINE directive is applied.
+ The compiler removes /\ Multi-line comments \/ on lines of ABL code with
+  preprocessor directives. To retain comments, use // Single-line comments or
+  escape the multi-line comment using a tilde
+  (~). For example, &SCOPED-DEFINE VAR3 DEF VAR xpos AS INT.
+  /~ column position of fill-in *~/.
+
+See also
+
+{ } Preprocessor name reference, &SCOPED-DEFINE preprocessor directive, &UNDEFINE preprocessor directive, DEFINED preprocessor function
+
+
+
+
+AMPERSAND IF , &THEN , &ELSEIF , &ELSE , and &ENDIF preprocessor directives
+
+ABL Syntax Reference - &IF, &THEN, &ELSEIF, &ELSE, and &ENDIF preprocessor directives
+These directives set logical conditions for
+the inclusion of blocks of code to compile.
+
+Syntax
+
+expression: An expression that can contain certain preprocessor name references,
+    the operators listed in the "Preprocessor operators" table below, the ABL functions
+    listed in the "Functions allowed in preprocessor expressions" table below, and the
+    DEFINED() preprocessor function.
+
+When it encounters an &IF directive, the preprocessor
+evaluates the expression that immediately follows. This expression can continue for more
+than one line; the &THEN directive indicates the end of the expression.
+If the expression evaluates to TRUE, then the block of code between it and the next
+&ELSEIF, &ELSE, or &ENDIF
+is compiled. If the expression evaluates to FALSE, the block of code is not compiled and the
+preprocessor proceeds to the next &ELSEIF, &ELSE,
+or &ENDIF directive. No include files referenced in this block of code
+are included in the final source. You can nest &IF directives.
+
+The expression that follows the &ELSEIF directive is
+evaluated only if the &IF expression tests false. If the
+&ELSEIF expression tests TRUE, the block of code between it and the
+next &ELSEIF, &ELSE, or
+&ENDIF directive is compiled. If the &ELSEIF
+expression tests FALSE, the preprocessor proceeds to the next directive.
+
+The block of code between the &ELSE and
+&ENDIF directives is compiled only if the &IF
+expression and the &ELSEIF expressions all test false. If there are no
+&ELSEIF directives, the block of code is compiled if the
+&IF expression tests false.
+
+Once any &IF or &ELSEIF
+expression evaluates to TRUE, no other block of code within the
+&IF...&ENDIF block is compiled.
+
+The &ENDIF directive indicates the end of the
+conditional tests and the end of the final block of code to compile.
+
+The following
+table shows how preprocessor expressions are evaluated.
+
+Table 1. Preprocessor
+expressions
+
+The following table lists the operators supported
+within preprocessor expressions. These operators have the same precedence
+as the regular ABL operators.
+
+Table 2. Preprocessor
+operators
+
+The following table lists the ABL functions
+supported within preprocessor expressions.
+
+Table 3. Functions allowed in preprocessor expressions
+
+Notes
+• When the preprocessor evaluates expressions, all arithmetic operations are performed
+  with integers. Preprocessor name references used in arithmetic operations must evaluate to
+  integers.
+
+See also
+
+&GLOBAL-DEFINE preprocessor directive, &SCOPED-DEFINE preprocessor directive, &UNDEFINE preprocessor directive
+
+
+
+
+AMPERSAND MESSAGE preprocessor directive
+
+ABL Syntax Reference - &MESSAGE preprocessor directive
+Displays a message at compile time in the Compiler
+Messages dialog box.
+
+Note: Does not apply to SpeedScript
+programming.
+
+Syntax
+
+text-string: A string of characters, preprocessor name references, named
+    include file arguments, or any combination of these that results
+    in a character string to display. The text-string argument
+    does not need to be quoted.
+
+Example
+
+This
+is a possible compile-time message directive:
+
+If this fragment appears in a procedure file, cmessage.p, compiling this file with the COMPILE statement
+causes the following message to be included with the compiler messages:
+
+Notes
+
+ The compiler removes /\ Multi-line comments \/ on lines of ABL code with
+  preprocessor directives. To retain comments, use // Single-line comments or
+  escape the multi-line comment using a tilde
+  (~). For example, &SCOPED-DEFINE VAR3 DEF VAR xpos
+  AS INT. /~ column position of fill-in *~/.
+
+See also
+
+{ } Preprocessor name reference
+
+
+
+
+AMPERSAND SCOPED-DEFINE preprocessor directive
+
+ABL Syntax Reference - &SCOPED-DEFINE preprocessor directive
+Defines a compile-time constant (preprocessor
+name) non-globally.
+
+Syntax
+
+preprocessor-name: The preprocessor name (compile-time constant) that you supply. ABL
+    reserved keywords are allowed, but cannot be used in preprocessor expressions.
+
+definition: A string of characters (or preprocessor references that evaluate to a
+    string of characters) whose content the preprocessor substitutes for preprocessor-name during compilation. If definition is
+    longer than on line, a tilde (~) at the end of a line indicates
+    continuation to the next line.
+
+Notes
+
+ You must place the &SCOPED-DEFINE directive at the
+  beginning of a line, preceded only by blanks, tab characters, or multi-line comments
+  (/ comment /). The preprocessor trims all leading and trailing spaces
+  from definition.
+ The syntax of the &GLOBAL-DEFINE and
+  &SCOPED-DEFINE directives are identical but these directives are
+  used differently.
+ The compiler removes /\ Multi-line comments \/ on lines of ABL code with
+  preprocessor directives. To retain comments, use // Single-line comments or
+  escape the multi-line comment using a tilde
+  (~). For example, &SCOPED-DEFINE VAR3 DEF VAR xpos
+  AS INT. /~ column position of fill-in *~/.
+
+See also
+
+{ } Preprocessor name reference, &GLOBAL-DEFINE preprocessor directive, &UNDEFINE preprocessor directive, DEFINED preprocessor function
+
+
+
+
+AMPERSAND UNDEFINE preprocessor directive
+
+ABL Syntax Reference - &UNDEFINE preprocessor directive
+Undefines a compile-time constant (preprocessor name).
+
+Syntax
+
+preprocessor-name: The preprocessor name (compile-time constant) that you want
+    to undefine.
+
+Notes
+
+ When you use the &UNDEFINE directive, ABL warns you
+  if the name you want to undefine was not previously defined.
+ The &UNDEFINE directive undefines the currently
+  active name. It also undefines named include file arguments.
+• To globally define the same name more than once, use this directive to
+  undefine the name before redefining it. If you do not undefine the global name before
+  redefining it, the compiler produces a warning message for non-globally (scoped) defined
+  names. For globally defined names, &UNDEFINE is optional, but
+  recommended for code readability. If &UNDEFINE is not used, the last
+  &GLOBAL-DEFINE statement is used.
+
+See also
+
+&GLOBAL-DEFINE preprocessor directive, &SCOPED-DEFINE preprocessor directive, DEFINED preprocessor function
+
+
+
+
+Assignment (= ) statement
+
+ABL Syntax Reference - Assignment (=) statement
+Assigns the value of an expression to a database field or variable.
+
+Data movement
+
+Syntax
+
+field: The name of an ABL data element to which you want to assign the value
+    of expression and that is defined with a data type
+    that is compatible with the data type of expression.
+    This data element can include a:
+
+     Database or temp-table field
+     Variable scoped to the current procedure, user-defined function,
+      or method of a class or an accessible class-based variable data member, including a
+      subscripted or unsubscripted array variable
+     Parameter defined for the current procedure, user-defined
+      function, or method of a class, including a subscripted or unsubscripted array
+      parameter
+     Writable class-based or COM property, including a subscripted or
+      unsubscripted array property
+     Writable handle attribute (such as PRIVATE-DATA)
+     Writable system handle (such as CURRENT-WINDOW)
+     ABL syntax that specifies a keyword-driven assignment statement
+      (such as the PROPATH statement, SUBSTRING statement, or similar statement)
+
+expression: An expression with a data type that is consistent with the data type
+    of field. For more information, see the Expression reference
+    entry.
+
+NO-ERROR: The NO-ERROR option is used to prevent the statement from raising ERROR and displaying error messages.
+
+    For
+    the assignment (=) statement with NO-ERROR, if ERROR is
+    raised, then the left side of the assignment will be unchanged.
+
+Note: You
+can use compound assignment operators (+=, -=, =, /=) to perform an operation and an assignment, using a shorthand
+notation. Supported operations include addition (numeric and date-based) and concatenation,
+subtraction (numeric and date-based), multiplication, and division. For more information,
+see += Addition assignment operator, -= Subtraction assignment operator, \= Multiplication assignment operator, and /= Division assignment operator.
+
+Example
+
+This procedure resets all the monthly quota values to 2500 in all salesrep
+records. If you want to set values for individual array elements, you can do so by making an
+explicit assignment using the assignment statement (=) and
+a specific array reference, such as month-quota[1] or month-quota[i].
+
+r-asgmnt.p
+
+Notes
+
+ If field expression is a decimal, the AVM rounds the value of the expression before
+  assigning it. If field is a decimal and expression is a decimal, the AVM rounds the value of the
+  expression to the number of decimal places defined for the field in the Data Dictionary,
+  or defined or implied for a variable or temp-table field.
+ If field is an ABL array type and
+  expression is not an array, and you do not identify a
+  particular array element, the AVM stores is an integer and expression in each element of the array. If you identify a particular
+  element, the AVM stores expression in the specified
+  array element.
+ If both field and expression are ABL array types, the AVM copies the data for
+  all expression array elements into the corresponding
+  elements of the field array. This is known as a deep copy. For more information, see Work with one-dimensional arrays in Basic ABL.
+ ABL allows you to assign ABL arrays and.NET array objects to each
+  other. How an array assignment works between ABL and.NET arrays depends upon the array
+  type of field (the target of the assignment) and the
+  array type of expression (the source for the
+  assignment). For more information, see the Data types reference entry.
+ If an assignment of one array to another encounters an error after
+  some, but not all of the source array's elements are retrieved, none of the target's
+  elements are updated.
+ If expression is an ABL handle-based
+  object (for example, a temp-table, ProDataSet, widget, or socket), field must be a temp-table field, variable, or other ABL data
+  element defined as a compatible handle. In this case, the AVM assigns only the handle of
+  the ABL handle-based object to field, not the entire
+  object and its contents.
+ If you assign a value to a database field, any ASSIGN trigger associated with that field executes at the end of the
+  assignment statement (after any index changes are made). If the trigger raises ERROR, the assignment fails and the database changes are
+  undone.
+
+  Note: If the value to be assigned is the same as the value already in the
+  database field, then any associated database ASSIGN triggers are not
+  executed.
+ You can embed an assignment in a SET
+  or UPDATE statement.
+ For multiple assignments, use the ASSIGN statement. This is more efficient than multiple assignment
+  statements.
+ If field is a handle, the expression on the right-hand-side must also evaluate to a
+  handle value that is specified using an appropriate reference to a handle-based object
+  handle. For more information on object handle references, see the Handle Attributes and Methods Reference.
+ You can assign DATE, DATETIME, and DATETIME-TZ
+  data. When the data type expression on the left side of the assignment statement contains
+  more information than the data type expression on the right side provides (for example,
+  datetime-tz = date where a DATETIME-TZ value contains more information than a DATE value), the time value defaults to midnight and the time zone is
+  calculated using SESSION:TIMEZONE when that attribute is
+  in use. If the attribute is not in use, the value defaults to the session's timezone. When
+  the data type expression on the left side of the assignment statement contains less
+  information than the data type expression on the right side provides (for example,
+  date = datetime-tz where a DATE value contains less information than a DATETIME-TZ value), the AVM converts the DATETIME-TZ value to the local date and time of the session, then drops the
+  time and time zone.
+ You can assign RAW values to MEMPTR variables and MEMPTR values to RAW
+  variables. If the target variable is a RAW data type, the AVM re-sizes the target
+  variable, if necessary, so that after the assignment is the same size as the source. Note
+  that after the assignment (whether RAW = MEMPTR or MEMPTR = RAW), the target variable has
+  a copy of the memory associated with the source—each variable has an independent copy of
+  the data.
+ You can assign large object data from one BLOB or MEMPTR to another,
+  and from one CLOB, LONGCHAR, or CHARACTER to another. You cannot assign large object data
+  between BLOBs and CLOBs or MEMPTRs and LONGCHARs. You can accomplish this, indirectly, by
+  using the COPY-LOB statement. For more information, see
+  the COPY-LOB statement reference
+  entry.
+
+  Note: When assigning BLOB or CLOB fields, the field must appear by itself on
+  either the right-hand or the left-hand side of the assignment.
+
+  The following table lists the default character conversions that the AVM performs when
+  assigning CLOB, LONGCHAR, and CHARACTER data between a source and target object.
+  References to CLOBCP and CLOBDB represent CLOB data in either the CLOB's defined code
+  page or the database's defined code page, respectively. References to the "fixed code
+  page" represent the code page of a target LONGCHAR variable set using the FIX-CODEPAGE statement.
+
+  Table 1. Default assignment character conversions
+
+ When you assign the Unknown value (?)
+  to a BLOB or CLOB field, the AVM deletes any associated object data.
+ If expression is a solitary
+  invocation of the NEW function (classes), this
+  statement represents and conforms to the rules specified for the NEW statement.
+ If expression evaluates to an
+  object reference value, field must also be a data
+  element defined as a class or interface type that is type-compatible with expression according to the rules for assigning references to
+  class instances defined for the NEW statement. For more
+  information, see the NEW statement reference entry.
+  Thus, you can assign one object reference variable to another object reference variable
+  when the destination object reference (on the left side of the assignment) is defined for
+  the same class, a super class, or an interface of the object reference being assigned (on
+  the right side of the assignment). The destination object reference retains its defined
+  class or interface type for compilation. However, following its assignment, at run time,
+  the destination represents the subclass of field (or
+  the class that implements the interface specified by field) that is defined by expression.
+
+  If field has a class type that is a
+  subclass lower in the class hierarchy than the class type represented by expression, you can cast expression to the type of field using
+  the CAST function, but only if expression is a super class that actually contains an
+  instance of the field class type. If field has a class type that implements an interface type
+  represented by expression, you can similarly cast
+  expression using the CAST function, but only if expression
+  actually contains an instance of the field class
+  type. For more information about the CAST function,
+  see the CAST function reference entry.
+
+  After the assignment,
+  field contains a copy of the object reference
+  value returned by expression, which points to the
+  same object instance, not a copy of the object referenced by expression.
+ Although you can assign an object reference to a temp-table field
+  defined as a Progress.Lang.Object class type, you cannot assign
+  an object reference to a field in a database table. For more information, see Develop Object-oriented ABL Applications.
+
+See also
+
+ASSIGN statement, CAST function, Class-based object reference, COPY-DATASET() method, COPY-LOB statement, COPY-TEMP-TABLE() method, Data types,
+Expression, FIX-CODEPAGE statement, NEW statement, NO-ERROR option
+
+
+
+
+*= Multiplication assignment operator
+
+ABL Syntax Reference - = Multiplication assignment operator
+Multiplies an ABL data element by a numeric expression. Provides a shorter
+syntax for applying multiplication.
+
+Syntax
+
+field = expression is equivalent to field = field (expression).
+
+Note: Spaces are required around the assignment operator. You cannot write field=expression.
+
+Note: This syntax can also be
+used in the ASSIGN, BUFFER-COPY,
+SET, and UPDATE statements.
+
+field: The name of an ABL data element by which you want to
+    multiply the value of expression, and
+    that is defined with a data type that is compatible with the data type of
+    expression. Valid data types are
+    INTEGER, INT64, and DECIMAL. The data element can include:
+
+     A database or temp-table field
+     A variable scoped to the current procedure,
+      user-defined function, or method of a class, or an accessible
+      class-based variable data member, including a subscripted array
+      variable
+     A parameter defined for the current procedure,
+      user-defined function, or method of a class, including a subscripted
+      array parameter
+     A writable class-based or COM property, including a
+      subscripted array property
+     A writable handle attribute or system handle
+      attribute
+     ABL syntax that specifies the CURRENT-VALUE statement, DYNAMIC-CURRENT-VALUE statement,
+      DYNAMIC-PROPERTY statement,
+      EXTENT statement, or LENGTH statement
+
+expression: An expression with a data type that is consistent with the
+    data type of field.
+
+NO-ERROR: The NO-ERROR option is
+    used to prevent the statement from raising ERROR and displaying error messages. With the NO-ERROR option, if ERROR is raised, then the ABL element on the left-hand side of
+    the assignment is unchanged.
+
+Note: For more information on the
+rules related to assignment, see the notes section in the Assignment (=) statement reference entry.
+
+Examples
+
+The following example shows how to do integer multiplication using
+the = assignment operator.
+
+The following example uses the =
+assignment operator on variables with mixed numeric data types.
+
+The following example uses the =
+assignment operator to update a database field.
+
+The following example uses the =
+assignment operator to update a class property:
+
+See also
+
+Assignment (=) statement, ASSIGN statement, \* Multiplication operator
+
+
+
+
+* Multiplication operator
+
+Multiplies two numeric expressions.
+
+Syntax
+
+expression: An expression with a numeric value.
+
+Example
+
+This
+procedure computes the value of the on-hand inventory for each item. If
+the on-hand inventory is negative, the procedure sets the inventory
+value to 0.
+
+r-mult.p
+
+Note
+
+Multiplying
+two decimal expressions produces a DECIMAL value. Multiplying two
+INTEGER expressions produces an INTEGER value. Multiplying two INT64
+expressions produces an INT64 value. Multiplying an integer expression
+(INTEGER or INT64) and a decimal expression produces a DECIMAL value.
+Multiplying an INTEGER expression and an INT64 expression produces
+an INT64 value.
+
+See also
+
+/ Division operator
+
+
+
+
+\ Special character
+
+The backslash (\) is an escape character on
+UNIX platforms only. It is a directory path separator in Windows
+platforms only.
+
+
+
+
+COLON Punctuation
+
+ABL Syntax Reference -: Punctuation
+The colon (:) symbol ends block labels and
+block header statements like DO, FOR, and REPEAT. It also serves
+as a separator between:
+
+ A handle reference and an attribute
+  or method, for example ttCust:PRIVATE-DATA or ttCust:CLEAR(),
+  where ttCust is a handle to a temp-table
+ An object or static type-name reference and a class-based property, method,
+  or event, for example, rObj:ToString(), rObj:NEXT-SIBLING,
+  or Progress.Lang.Class:GetClass("Progress.Data.BindingSource"), where rObj is an object reference to
+  a Progress.Lang.Object instance
+• A character string literal and one of its options, for example, "City/State/Zip":U
+
+It
+also follows the EDITING keyword in an EDITING phrase and is a device
+delimiter in Windows.
+
+See:: Punctuation for
+rules to help you decide whether to use period, colon, or double
+colon syntax.
+
+See also:: Punctuation,; Punctuation, " "Character-string literal, Class-based object reference, Type-name syntax
+
+
+
+
+, Punctuation
+
+ABL Syntax Reference -, Punctuation
+The comma (,) symbol separates multiple file
+specifications (used in FOR statements, FOR phrases of DO and REPEAT
+statements, and PRESELECT phrases), branching statements (used in
+UNDO statements and phrases), and multiple arguments of a function.
+
+
+
+
+DOUBLE-COLON Punctuation
+
+ABL Syntax Reference -:: Punctuation
+The double colon (::) is a short-hand syntax
+for referencing constant named members of database object containers,
+for example dynamic ProDataSets, queries, temp-tables, and buffers.
+
+The
+following rules will help you to decide whether to use dot, colon,
+or double colon syntax:
+
+ Use a dot between two names when the left-hand side name is the actual
+  name of a database or table, known at compile time, and is not a handle or reference of
+  any kind. For example, Customer.CustNum or Sports2020.Customer or Sports2020.Customer.CustNum.
+ Use a colon between two character strings when the left-hand
+  side is a handle or reference, and is not the actual name of a database
+  or table, and the right-hand side is an attribute or method for
+  the left-hand-side handle or reference. For example, hBuff:NUM-FIELDS, or hDset:NUM-BUFFERS or hBuff:FIND-FIRST.
+• Use a double colon between two character strings when the left-hand side
+  name is a handle to a container object of some kind (buffer, table
+  or ProDataSet) and the right-hand side is not an attribute or method,
+  but instead is a named member of the left-hand side. For example, hBuff::CustNum or hDset::Customer or hDSet::Customer::CustNum.
+
+For
+example, if hBuff is a HANDLE to the Customer table,
+then hBuff:NAME returns the string "Customer",
+but hBuff::NAME returns the value of the NAME field
+for the current record in the hBuff Buffer, e.g. "Lift
+Line Skiing".
+
+See also: Punctuation,. Punctuation
+
+
+
+
+DOUBLE-QUOTE" Character-string literal
+
+ABL Syntax Reference - " "Character-string literal
+Specifies a literal character-string value.
+
+Syntax
+
+characters: The literal contents of the character string.
+
+R | L | C | T: Specifies the justification of the string within its maximum
+    length: right, left, centered, or trimmed, respectively. The default
+    justification depends on how the string is used. If the string is
+    displayed with side labels, the default is right justification.
+    If column labels are used, the defaults are left justification for
+    character fields and right justification for numeric fields. Strings
+    used in expressions are trimmed by default.
+
+     R means right justified and padded on the left with spaces:
+      "Hello":R10 = " Hello".
+     L means left justified and padded on the right with spaces:
+      "Hello":L10 = "Hello ".
+     C means centered within the string and padded on both the right
+      and left as needed: "Hello":C10 = " Hello ".
+     T means trimmed of leading and trailing blanks (although
+      storage space and screen space is still allocated for the maximum number of
+      characters): " Hello":T10 = "Hello" (but screen and
+      storage space is still reserved for 10 characters).
+
+U: Specifies that the string is untranslatable. If you do not specify
+    U, then the string is assumed to be translatable, unless the
+    DEFAULT-UNTRANSLATABLE option of the COMPILE statement or the Default Untranslatable (-defuntrans) startup parameter (for a
+    session) is used.
+
+max-length: The number of characters reserved for the string contents in
+    the text segment. The default is the length of the string itself.
+    You might want to specify a longer length if you expect a translation
+    of the string to be longer. The longest length you can specify is
+    5120 characters.
+
+Note
+
+If you include the colon (:) after the quoted string, you
+must supply at least one option. Otherwise, ABL treats the colon as a statement
+separator.
+
+
+
+
+DOUBLE-QUOTE Special character
+
+ABL Syntax Reference - " Special character
+The double quote (") encloses character constants
+or strings. To use quotes within a quoted character string, you
+must use two double quotes (""), which compile to a single double
+quote ("), or you must put a tilde (~) in front of any quotes within
+the quoted character string. (This does not work when passing parameters
+to an include file.)
+
+See also
+
+" "Character-string literal
+
+
+
+
+=  Special character
+
+ABL Syntax Reference - = Special character
+See the EQ or = operator, Assignment (=) statement.
+
+
+
+
+EQ or= operator
+
+ABL Syntax Reference - EQ or = operator
+Returns a TRUE value if two expressions are equal.
+
+Syntax
+
+expression: A constant, field name, variable name, or expression. The expressions
+    on either side of the EQ or = must be of the same data type, although one
+    might be an integer and the other a decimal.
+
+Example
+
+This
+procedure prompts for the initials of a sales rep. The FOR EACH
+block reads all the order records for that sales rep. The DISPLAY
+statement displays information from each of the retrieved records.
+
+r-eq.p
+
+Notes
+
+ By
+  default, the AVM uses the collation rules you specify to compare
+  characters and sort records. The collation rules specified with
+  the Collation Table (-cpcoll) startup parameter
+  take precedence over a collation specified for any database the
+  AVM accesses during the session, except when the AVM uses or modifies
+  pre-existing indexes. If you do not specify a collation with the -cpcoll startup
+  parameter, the AVM uses the language collation rules defined for
+  the first database on the command line. If you do not specify a
+  database on the command line, the AVM uses the collation rules with
+  the default name "basic" (which might or might
+  not exist in the convmap.cp file).
+ You can compare character strings with EQ. Most character comparisons
+  are case insensitive in ABL. That is, upper-case and lower-case
+  characters have the same sort value. However, it is possible to
+  define fields and variables as case sensitive (although it is not
+  advised, unless strict ANSI SQL adherence is required). If either expression is
+  a field or variable defined as case sensitive, the comparison is
+  case sensitive and "Smith" does not equal "smith".
+ Characters are converted to their sort code values for comparison. Using
+  the default case-sensitive collation table, all uppercase letters
+  sort before all lowercase letters (for example, a is greater than
+  Z, but less than b.) Note also that in character code uppercase
+  A is less than [, \, ^, \_, and  ', but lowercase
+  a is greater than these.
+ If one of the expressions has an Unknown value (?) and
+  the other does not, the result is FALSE. If both have the Unknown value (?),
+  the result is TRUE. However, for SQL, if the value of either or
+  both expressions is the Unknown value (?), then the result
+  is the Unknown value (?).
+ The equal comparison ignores trailing blanks. Thus, "abc" is
+  equal to "abc ". However, leading and embedded blanks are
+  treated as characters and " abc" is not equal to "abc".
+ You cannot compare data of different DATE, DATETIME, and DATETIME-TZ
+  data types to each other using EQ. You must first convert different
+  date and datetime data types to the same data type before doing a
+  comparison between them.
+ You can use EQ to compare one BLOB field to another. The AVM performs
+  a byte-by-byte comparison.
+ You can use EQ to compare a LONGCHAR variable to another LONGCHAR
+  or CHARACTER variable. The variable values are converted to -cpinternal for
+  comparison and must convert without error, or the AVM raises a run-time
+  error.
+ You can use EQ to compare a CLOB field to another CLOB field.
+ You can use EQ to compare two enums, including both ABL and.NET enums, as long as they
+  are the same enum type. EQ compares the underlying numerical values of the
+  enumerators.
+
+
+
+
+/* Multi-line comments * /
+
+ABL Syntax Reference - / Multi-line comments /
+Allows you to add explanatory text to code. The comment begins with /\ and ends with \/.
+This type of comment can wrap over multiple lines.
+
+Syntax
+
+comment: Descriptive text.
+
+Examples
+
+The r-comm.p example
+uses comments to document the history of procedure modifications.
+
+r-comm.p
+
+The r-comm2.p example uses
+comments to describe what the procedure does.
+
+r-comm2.p
+
+The comment symbols that enclose the inner FOR EACH block turn that block into a comment
+for testing purposes. You can nest comments, so ABL correctly processes any comments already
+in the bypassed code. Both multi-line comments and single-line comments can be nested inside
+a multi-line comment.
+
+See also
+
+// Single-line comments
+
+
+
+
+/ Division operator
+
+Divides one numeric expression by another numeric expression,
+producing a decimal result. This is the case for both INTEGER and INT64
+expressions.
+
+Syntax
+
+expression: An expression that evaluates to a numeric value.
+
+Example
+
+This
+procedure divides the number of items allocated by the number of items
+on hand, producing a decimal value. The multiplication operator
+(\) converts that decimal value to a percentage.
+
+r-div.p
+
+Notes
+
+ ABL always performs
+  division as a decimal operation (the product of 5 / 2 is 2.5, not
+  2). If you assign the result to an integer field, ABL rounds the
+  decimal to make the assignment. When you want ABL to truncate a
+  quotient to an integer, use the TRUNCATE function (TRUNCATE(5 /
+  2, 0) is 2).
+ The result of dividing a number by 0 is the Unknown value (?),
+  and the AVM does not display an error message.
+
+See also
+
+\ Multiplication operator
+
+
+
+
+/= Division assignment operator
+
+Divides an ABL data element by a numeric expression. Provides a shorter
+syntax for applying division.
+
+Syntax
+
+field /= expression is equivalent
+to field = field / (expression).
+
+Note: Spaces are required around the assignment operator. You cannot write
+field/=expression.
+
+Note: This syntax can also be
+used in the ASSIGN, BUFFER-COPY,
+SET, and UPDATE statements.
+
+field: The name of an ABL data element by which you want to divide the value of
+    expression, and that is defined with
+    a data type that is compatible with the data type of expression. Valid data types are INTEGER,
+    INT64, and DECIMAL. The data element can include:
+
+     A database or temp-table field
+     A variable scoped to the current procedure,
+      user-defined function, or method of a class, or an accessible
+      class-based variable data member, including a subscripted array
+      variable
+     A parameter defined for the current procedure,
+      user-defined function, or method of a class, including a subscripted
+      array parameter
+     A writable class-based or COM property, including a
+      subscripted array property
+     A writable handle attribute or system handle
+      attribute
+     ABL syntax that specifies the CURRENT-VALUE statement, DYNAMIC-CURRENT-VALUE statement, DYNAMIC-PROPERTY statement, EXTENT statement, or LENGTH statement
+
+expression: An expression with a data type that is consistent with the data type of
+    field.
+
+NO-ERROR: The NO-ERROR option is used to prevent the statement from raising ERROR and displaying error messages. With the
+    NO-ERROR option, if ERROR is raised, then the ABL element on the
+    left-hand side of the assignment is unchanged.
+
+Note: For more information on the rules related to assignment, see the notes section in
+the Assignment (=) statement reference entry.
+
+Examples
+
+The following example shows how to do integer division using the
+/= assignment operator.
+
+The following example uses the /=
+assignment operator on variables with mixed numeric data types.
+
+The following example uses the /=
+assignment operator to update a database field.
+
+The following example uses the /=
+assignment operator to update a class property:
+
+See also
+
+Assignment (=) statement, ASSIGN statement, / Division operator
+
+
+
+
+// Single-line comments
+
+Allows you to add explanatory text to code. The comment begins with a double
+slash (//) and ends at a newline character (\n), a
+carriage return (\r), or the end of the file.
+
+Syntax
+
+comment: Descriptive text.
+
+Note: Comments can be nested.
+
+Examples
+
+This example uses a comment to document a procedure modification:
+
+To be properly interpreted as the beginning of a single-line comment, the
+"//" must be preceded by a line break or white space. In the first line
+of code below, the text between "//" and the end of the line will be
+interpreted as a comment, but it will not in the second line:
+
+Notes
+
+ CAUTION: If you need to use
+  // at the beginning of a pathname, such as in RUN //dir1/file, the pathname will be interpreted as a comment because the
+  // is preceded by a space. Enclosing the pathname in quotes ensures
+  that the text following // will not be treated as a comment. Pathnames
+  that contain // in their interior, such as in RUN parent//dir1/file, will work as expected.
+ Both multi-line comments and single-line comments can be nested inside a single-line
+  comment.
+
+See also
+
+/\ Multi-line comments \/
+
+
+
+
+/ Special character
+
+The slash (/) symbol is a directory path separator (UNIX).
+It is also used for date fields (99/99/99).
+
+See also
+
+" "Character-string literal
+
+
+
+
+GE or >=  operator
+
+ABL Syntax Reference - GE or >= operator
+Returns a TRUE value if the first of two expressions
+is greater than or equal to the second expression.
+
+Syntax
+
+expression: A constant, field name, variable name, or any combination of these.
+    The expressions on either side of the GE or >= must
+    be of the same data type, although one might be integer and the other decimal.
+
+Example
+
+This
+procedure displays item information for those items whose OnHand value
+is greater than or equal to 120:
+
+r-ge.p
+
+Notes
+
+ By
+  default, the AVM uses the collation rules you specify to compare
+  characters and sort records. The collation rules specified with
+  the Collation Table (-cpcoll) startup parameter
+  take precedence over a collation specified for any database the
+  AVM accesses during the session, except when the AVM uses or modifies
+  pre-existing indexes. If you do not specify a collation with the -cpcoll startup
+  parameter, the AVM uses the language collation rules defined for
+  the first database on the command line. If you do not specify a
+  database on the command line, the AVM uses the collation rules with
+  the default name "basic" (which might or might
+  not exist in the convmap.cp file).
+ If either of the expressions is the Unknown value (?), then the result is the Unknown value (?); if both expressions are the Unknown value (?), then the result is TRUE. For more information on the
+  Unknown value (?), see? Special character.
+ You can compare character strings with GE. Most
+  character comparisons are case insensitive in ABL. That is, upper-case and lower-case
+  characters have the same sort value. However, it is possible to define fields and
+  variables as case sensitive (although it is not advised, unless strict ANSI SQL adherence
+  is required). If either expression is a field or
+  variable defined as case sensitive, the comparison is case sensitive and "Smith" does not
+  equal "smith".
+ Characters are converted to their sort code values for comparison. Using
+  the default case-sensitive collation table, all uppercase letters
+  sort before all lowercase letters (for example, a is greater than
+  Z, but less than b.) Note also that in character code uppercase
+  A is less than [, \, ^, \_, and  ', but lowercase
+  a is greater than these.
+ You cannot compare data of different DATE, DATETIME, and DATETIME-TZ
+  data types to each other using GE. You must first convert different date
+  and datetime data types to the same data type before doing a comparison between them.
+ You can use GE to compare a LONGCHAR variable to
+  another LONGCHAR or CHARACTER variable. The variable values are converted to -cpinternal for comparison and must convert without error, or
+  the AVM raises a run-time error.
+ You cannot use GE to compare any of the LOB data types,
+  including BLOB or CLOB.
+ You can use GE to compare two enums, including both ABL
+  and.NET enums, as long as they are the same enum type. GE compares the
+  underlying numerical values of the enumerators.
+
+
+
+
+GT= Special character
+
+ABL Syntax Reference - > = Special character
+See the GE or >= operator.
+
+
+
+
+GT or>operator
+
+ABL Syntax Reference - GT or > operator
+Returns a TRUE value if the first of two expressions
+is greater than the second expression.
+
+Syntax
+
+expression: A constant, field name, variable name, or any combination of
+    these. The expressions on either side of the GT or > must be of
+    the same data type, although one might be integer and the other decimal.
+
+Example
+
+This
+procedure lists all items that have a negative OnHand quantity
+or more than 90% of the OnHand inventory currently
+allocated:
+
+r-gt.p
+
+Notes
+
+ By
+  default, the AVM uses the collation rules you specify to compare
+  characters and sort records. The collation rules specified with
+  the Collation Table (-cpcoll) startup parameter
+  take precedence over a collation specified for any database the
+  AVM accesses during the session, except when the AVM uses or modifies
+  pre-existing indexes. If you do not specify a collation with the -cpcoll startup
+  parameter, the AVM uses the language collation rules defined for
+  the first database on the command line. If you do not specify a
+  database on the command line, the AVM uses the collation rules with
+  the default name "basic" (which might or might
+  not exist in the convmap.cp file).
+ If either of the expressions is the Unknown value (?), then the result is the Unknown value (?); if both of the expressions are the Unknown value (?), then the result is FALSE. For more information on the
+  Unknown value (?), see? Special character.
+ You can compare character strings with GT. Most character comparisons
+  are case insensitive in ABL. That is, upper-case and lower-case
+  characters have the same sort value. However, it is possible to
+  define fields and variables as case sensitive (although it is not
+  advised, unless strict ANSI SQL adherence is required). If either expression is
+  a field or variable defined as case sensitive, the comparison is
+  case sensitive and "Smith" does not equal "smith".
+ Characters are converted to their sort code values for comparison. Using
+  the default case-sensitive collation table, all uppercase letters
+  sort before all lowercase letters (for example, a is greater than
+  Z, but less than b). Note also that in character code uppercase
+  A is less than [, \, ^, \_, and  ', but lowercase
+  a is greater than these.
+ You cannot compare data of different DATE, DATETIME, and DATETIME-TZ
+  data types to each other using GT. You must first convert different
+  date and datetime data types to the same data type before doing a
+  comparison between them.
+ You can use GT to compare a LONGCHAR variable to another LONGCHAR
+  or CHARACTER variable. The variable values are converted to -cpinternal for
+  comparison and must convert without error, or the AVM raises a run-time
+  error.
+ You cannot use GT to compare one CLOB field to another.
+ You can use GT to compare two enums, including both ABL and.NET enums, as long as they
+  are the same enum type. GT compares the underlying numerical values of the
+  enumerators.
+
+
+
+
+GT Special character
+
+ABL Syntax Reference - > Special character
+See the GT or > operator.
+
+
+
+
+LE or <=  operator
+
+ABL Syntax Reference - LE or < = operator
+Returns a TRUE value if the first of two expressions
+is less than or equal to the second.
+
+Syntax
+
+expression: A constant, field name, variable name, or expression. The expressions
+    on either side of the LE or < = must be of the same data type,
+    although one can be integer and the other decimal.
+
+Example
+
+This
+procedure lists all the items with zero or negative on-hand quantities:
+
+r-le.p
+
+Notes
+
+ By
+  default, the AVM uses the collation rules you specify to compare
+  characters and sort records. The collation rules specified with
+  the Collation Table (-cpcoll) startup parameter
+  take precedence over a collation specified for any database the
+  AVM accesses during the session, except when the AVM uses or modifies
+  pre-existing indexes. If you do not specify a collation with the -cpcoll startup
+  parameter, the AVM uses the language collation rules defined for
+  the first database on the command line. If you do not specify a
+  database on the command line, the AVM uses the collation rules with
+  the default name "basic" (which might or might
+  not exist in the convmap.cp file).
+ If either of the expressions is the Unknown value (?), then the result is the Unknown value (?); if both of the expressions are the Unknown value (?), then the result is TRUE. For more information on the
+  Unknown value (?), see? Special character.
+ You can compare character strings with LE. Most
+  character comparisons are case insensitive in ABL. That is, upper-case and lower-case
+  characters have the same sort value. However, it is possible to define fields and
+  variables as case sensitive (although it is not advised, unless strict ANSI SQL adherence
+  is required). If either expression is a field or
+  variable defined as case sensitive, the comparison is case sensitive and "Smith" does not
+  equal "smith".
+ Characters are converted to their sort code values for comparison. Using
+  the default case-sensitive collation table, all uppercase letters
+  sort before all lowercase letters (for example, a is greater than
+  Z, but less than b.) Note also that in character code uppercase
+  A is less than [, \, ^, \_, and  ', but lowercase
+  a is greater than these.
+ You cannot compare data of different DATE, DATETIME, and DATETIME-TZ
+  data types to each other using LE. You must first convert different date
+  and datetime data types to the same data type before doing a comparison between them.
+ You can use LE to compare a LONGCHAR variable to
+  another LONGCHAR or CHARACTER variable. The variable values are converted to -cpinternal for comparison and must convert without error, or
+  the AVM raises a run-time error.
+ You cannot use LE to compare any of the LOB data types,
+  including BLOB or CLOB.
+ You can use LE to compare two enums, including both ABL
+  and.NET enums, as long as they are the same enum type. LE compares the
+  underlying numerical values of the enumerators.
+
+
+
+
+LT= Special character
+
+ABL Syntax Reference - < = Special character
+See the LE or < = operator.
+
+
+
+
+LT>Special character
+
+ABL Syntax Reference - Special character
+See the NE or <> operator.
+
+
+
+
+LT or<operator
+
+ABL Syntax Reference - LT or < operator
+Returns a TRUE value if the first of two expressions
+is less than the second.
+
+Syntax
+
+expression: A constant, field or variable name, or expression. The expressions
+    on either side of the LT or < = must be the same data type, although
+    one can be an integer and the other decimal.
+
+Example
+
+This
+procedure displays information for those Item records
+whose OnHand value is less than the Allocated value:
+
+r-lt.p
+
+Notes
+
+ By
+  default, the AVM uses the collation rules you specify to compare
+  characters and sort records. The collation rules specified with
+  the Collation Table (-cpcoll) startup parameter
+  take precedence over a collation specified for any database the
+  AVM accesses during the session, except when the AVM uses or modifies
+  pre-existing indexes. If you do not specify a collation with the -cpcoll startup
+  parameter, the AVM uses the language collation rules defined for
+  the first database on the command line. If you do not specify a
+  database on the command line, the AVM uses the collation rules with
+  the default name "basic" (which might or might
+  not exist in the convmap.cp file).
+ If either of the expressions is the Unknown value (?), then the result is the Unknown value (?); if both of the expressions are the Unknown value (?), then the result is FALSE. For more information on the
+  Unknown value (?), see? Special character.
+ You can compare character strings with LT. Most such comparisons are
+  case insensitive in ABL. That is, upper-case and lower-case characters have
+  the same sort value. It is possible to define fields and variables
+  as case sensitive (although it is not advised, unless strict ANSI
+  SQL adherence is required). If either expression is
+  a field or variable defined as case sensitive, the comparison is
+  case sensitive and "Smith" does not equal "smith."
+ Characters are converted to their sort code values for comparison. Using
+  the default case-sensitive collation table, all uppercase letters
+  sort before all lowercase letters (for example, a is greater than
+  Z, but less than b.) Note also that in character code uppercase
+  A is less than [, \, ^, \_, and  ', but lowercase
+  a is greater than these.
+ You cannot compare data of different DATE, DATETIME, and DATETIME-TZ
+  data types to each other using LT. You must first convert different
+  date and datetime data types to the same data type before doing a
+  comparison between them.
+ You can use LT to compare a LONGCHAR variable to another LONGCHAR
+  or CHARACTER variable. The variable values are converted to -cpinternal for
+  comparison and must convert without error, or the AVM raises a run-time
+  error.
+ You cannot use LT to compare one CLOB field to another.
+ You can use LT to compare two enums, including both ABL and.NET enums, as long as they
+  are the same enum type. LT compares the underlying numerical values of the
+  enumerators.
+
+
+
+
+LT Special character
+
+ABL Syntax Reference - < Special character
+See the LT or < operator.
+
+
+
+
+LT T>Generic type reference
+
+ABL Syntax Reference - Generic type reference
+ is a notation for type parameters.
+
+Syntax
+
+Note: This topic applies to ABL generic types. For information on.NET generic types,
+see Reference.NET generic types in Use.NET Classes in ABL Applications.
+
+Generic type
+
+A generic type is an object-oriented type (for a class or interface) that accepts
+one or more type parameters, allowing the class to defer the specification of such
+parameters until the class is declared and instantiated by a client of the class.
+This allows code for the class or interface to be written once, instead of having to
+write multiple classes or interfaces for each required type. The implementation of
+generic types also eliminates the cost of having to cast references at runtime.
+
+A list is a common example for a generic type. A list generic type has common
+functionality for any type of list, and you can store any kind of objects, or
+related objects, depending on the requirements, without having to write a different
+class for each type of object you want to store in the list.
+
+Note: User-defined generic types are not
+supported.
+
+Type parameter
+
+A type parameter is defined inside angle brackets (<>) and
+is given a name (usually a single letter) and a type for each type parameter, which
+defines the constraint for the types of objects the generic type can work with. A
+generic type can have multiple type parameters, defined inside the angle brackets
+and separated by commas (,). The type parameter is used as a
+placeholder in the places where a concrete type would normally be specified, to
+indicate the actual type for the instance of the generic type. For example, the
+following is the declaration of the Progress.Collections.List class:
+
+This generic class contains one type parameter T, defined as Progress.Lang.Object.
+This allows you to declare an instance of such a class using any object that is
+compatible with the parameter type, in this case, Progress.Lang.Object.
+
+Note that a generic type is generally referred to with the type parameter
+notation, for instance List.
+
+Type parameters are used in the generic type wherever a concrete type is used.
+For example, the following members of the List type show where the type parameter is used:
+
+Given a class type named Animals, in a
+list of Animals, then Add() would accept objects that are compatible with the type Animals, and Get()
+would return an object of type Animals.
+
+Type arguments
+
+A type argument is the type you specify on the
+client of the generic class or interface. When using a generic type, you must
+specify the same number of type arguments as there are type parameters defined in
+the generic type. That is, you cannot instantiate a generic type without specifying
+type arguments. For example:
+
+This example shows two different instances of the type List, using different type arguments: Ant and Person. This
+allows the client code to have List,
+referred to as a “List of Ant”, and List, referred as a “List of Person”.
+
+Referencing a generic type like this is referred to as "constructing the type".
+Therefore, a reference to a generic type that specifies a particular set of data
+types for its type parameters is referred to as a "reference to its constructed type
+name".
+
+The compiler requires that each type argument supplied has an "is-a" relationship to the
+corresponding type parameter; that is, the argument must either be, inherit from, or
+implement the type parameter.
+
+Since the List type defines a type
+parameter of type Progress.Lang.Object, that allows
+List to be supplied with any type of
+object-oriented ABL object as a type argument, but not any scalar types.
+
+After you declare a variable using the constructed type name, the compiler
+ensures that the type of the type argument is used wherever the generic class refers
+to the type parameter in its API.
+
+Therefore, the following code is allowed as the Add() method requires a Person for a
+List, and the Get() method returns a Person.
+
+If you change List to
+List, then both the Add() and Get() calls
+would not compile as the Person and Ant types are not the same.
+
+The compatibility rules for object-oriented ABL types applies to generic
+types, except that the type arguments must match exactly. For example, this
+statement is allowed, as List implements
+IList and the type arguments exactly
+match:
+
+However, assuming Ant has Insect in its hierarchy, whether as a super class or an
+interface, this statement is not allowed, as the type argument does not exactly
+match:
+
+Even though Ant is-a Insect, a
+List does not implement an
+IList.
+
+The restriction also applies when you need to cast an object (with
+CAST or DYNAMIC-CAST).
+
+
+
+
+NE or<GT operator
+
+ABL Syntax Reference - NE or <> operator
+Compares two expressions and returns a TRUE
+value if they are not equal.
+
+Syntax
+
+expression: A constant, field name, variable name, or expression. The expressions
+    on either side of the NE or must be of the same data type.
+
+Example
+
+This
+procedure displays information for all items that appear in the
+catalog. (The CatPage field is not equal to the Unknown value (?) or
+0.)
+
+r-ne.p
+
+Notes
+
+ By
+  default, the AVM uses the collation rules you specify to compare
+  characters and sort records. The collation rules specified with
+  the Collation Table (-cpcoll) startup parameter
+  take precedence over a collation specified for any database the
+  AVM accesses during the session, except when the AVM uses or modifies
+  pre-existing indexes. If you do not specify a collation with the -cpcoll startup
+  parameter, the AVM uses the language collation rules defined for
+  the first database on the command line. If you do not specify a
+  database on the command line, the AVM uses the collation rules with
+  the default name "basic" (which might or might
+  not exist in the convmap.cp file).
+ If one of the expressions has the Unknown value (?) and
+  the other does not, the result is TRUE. If both have the Unknown value (?),
+  the result is FALSE. For SQL, however, if one or both expressions
+  have the Unknown value (?), then the result is the Unknown value (?).
+ You can compare character strings with NE. Most character comparisons
+  are case insensitive in ABL. That is, all characters are converted
+  to uppercase prior to comparisons. However, it is possible to define
+  fields and variables as case sensitive (although it is not advised,
+  unless strict ANSI SQL adherence is required). If either expression is
+  a field or variable defined as case sensitive, the comparison is
+  case sensitive and "Smith" does not equal "smith".
+ Characters are converted to their sort code values for comparison. Using
+  the default case-sensitive collation table, all uppercase letters
+  sort before all lowercase letters (for example, a is greater than
+  Z, but less than b.) Note also that in character code uppercase
+  A is less than [, \, ^, \_, and  ', but lowercase
+  a is greater than these.
+ You cannot compare data of different DATE, DATETIME, and DATETIME-TZ
+  data types to each other using NE. You must first convert different
+  date and datetime data types to the same data type before doing a
+  comparison between them.
+ You can use NE to compare one BLOB field to another. The AVM performs
+  a byte-by-byte comparison.
+ You can use NE to compare a LONGCHAR variable to another LONGCHAR
+  or CHARACTER variable. The variable values are converted to -cpinternal for
+  comparison and must convert without error, or the AVM raises a run-time
+  error.
+ You can use NE to compare a CLOB field only to the Unknown value (?).
+• You can use NE to compare two enums, including both ABL and.NET enums, as long as they
+  are the same enum type. NE compares the underlying numerical values of the
+  enumerators.
+
+
+
+
+OPEN-BRACKET]Array reference
+
+ABL Syntax Reference - [ ] Array reference
+Square brackets ([ ]) enclose array subscripts ([1],
+[2], etc.), initial values (such as [1,2,3,4]), or
+ranges (such as, [1 FOR 4]). The following sections describe these uses in
+more detail.
+
+Array subscripts
+
+In ABL, the first element of the array has an index value of 1. The following example shows
+how to reference array elements using a subscript:
+
+Initial values
+
+The notation [n,n,n...] is only allowed for the INITIAL
+value in a DEFINE VARIABLE statement or during the initialization of the variable
+in the VAR statement, as shown in the following example:
+
+If you need to assign the elements in the array outside of those two statements, you have
+to do it one at a time, if the values are different. For example:
+
+However, if the value is the same for all elements, you can just assign the one value to
+the array:
+
+Ranges
+
+The range notation [n FOR m] causes
+ABL to start with the nth array element and to work with that and the
+next m elements. In a range, you can use a variable for the first
+element, but the second element must be a constant. The range notation can be used in a
+statement where array elements are expanded automatically, such as DISPLAY,
+UPDATE, SET, EXPORT, and
+IMPORT. The following example shows how to use a range in a
+DISPLAY statement:
+
+In the example, the DISPLAY statement expands to
+DISPLAY myArray[1] myArray[2] myArray[3] myArray[4].
+
+See also
+
+Work with one-dimensional arrays
+
+
+
+
+OPEN-CURLY-BRACKET} Argument reference
+
+ABL Syntax Reference - { } Argument reference
+References the value of an argument that a
+procedure passes to a called external procedure file or to an include
+file.
+
+ABL converts each argument to a character format. This
+conversion removes the surrounding double-quotes if the parameter
+was specified as a character string constant in the RUN statement
+or include file reference.
+
+When one procedure is called from
+another and arguments are used, ABL recompiles the called procedure,
+substituting the arguments that the calling procedure passes, and
+then runs the called procedure.
+
+Syntax
+
+Enter the braces ({}) as shown; they do not
+represent syntax notation in this description.
+
+n: The number of the argument being referred to. If n =
+    0, ABL substitutes the name of the current procedure (the name you
+    used when you called it, not the full pathname) as the argument.
+    If n = \, ABL substitutes all arguments that
+    the calling procedure passes (but not the name {0}). If you refer to
+    the nth parameter and the calling procedure does
+    not supply it, {n} is ignored.
+
+&argument-name: The name of the argument being referred to. If you refer to
+    an argument-name and the calling procedure does
+    not supply it, ABL ignores {&argument-name}.
+
+    If argument-name is
+    an asterisk (\), ABL substitutes all arguments that the calling
+    procedure passes. It also adds quotation marks to each parameter,
+    so you can pass the named argument list through multiple levels
+    of include files.
+
+    Note: It is invalid to pass
+    both numbered and named arguments within a single pair of braces.
+    Although this will not cause a compile-time or run-time error, the
+    arguments will not be passed correctly.
+
+Examples
+
+The
+procedure r-arg.p runs procedure r-arg2.p,
+passing the arguments customer and name to r-arg2.p.
+ABL substitutes these arguments for {1} and {2} in the r-arg2.p procedure.
+
+r-arg.p
+
+r-arg2.p
+
+The r-inc.p procedure defines
+the variables txt and num, and
+assigns the values "Progress VERSION" and "7" to them. The r-inc.p procedure
+includes the r-inc.ifile and passes the &int and &str arguments
+to the include file. Because the parameters are named, their order
+is unimportant. The called procedure can find each argument, regardless
+of placement. The r-inc.i include file displays
+a message that consists of the passed arguments. The asterisk argument
+displays all the parameters as they are listed in the r-inc.p procedure.
+
+r-inc.p
+
+r-inc.i
+
+Notes
+
+ If
+  you pass {} arguments using the RUN statement, you cannot precompile
+  the called procedure. When ABL compiles a procedure, it must have
+  all the values the procedure needs. So, if you pass arguments to a
+  procedure you are calling with the RUN statement, the AVM evaluates those
+  arguments when the calling procedure is run, not when it is compiled.
+ You can use the name of an include file as an argument to another include
+  file. For example, a reference to {{1}} in an included procedure causes
+  ABL to include the statements from the file with the name that passed
+  as the first argument.
+ Use DEFINE PARAMETER to define a run-time parameter in a called
+  subprocedure. Each parameter requires its own DEFINE statement. The
+  parameters must be specified in the RUN statement in the same order as
+  defined with DEFINE statements.
+ ABL disregards an empty pair of braces ({}).
+ The maximum length of the arguments you can pass to an include
+  file is determined by the Input Characters (-inp) startup
+  parameter.
+ An argument argument-name behaves like a scoped
+  preprocessor name. Thus, if you define a preprocessor name, argument-name,
+  its value replaces the value of any argument argument-name passed
+  to the same file at the point where the preprocessor name, argument-name,
+  is defined.
+
+See also; Special character, { } Include file reference, { } Preprocessor name reference, COMPILE statement, DEFINE PARAMETER statement, RUN statement
+
+
+
+
+OPEN-CURLY-BRACKET} Include file reference
+
+ABL Syntax Reference - { } Include file reference
+Causes ABL to retrieve the statements in a
+file and compile them as part of the main procedure if it encounters
+the file's name inside braces ({}) when compiling the procedure.
+You can name arguments you want substituted in the file before compilation.
+
+Syntax
+
+Enter the braces ({}) as shown; they do not
+represent syntax notation in this description.
+
+include-file: The name of an external operating system file that contains statements
+    you want included during the compilation of a main procedure. If the file you name has
+    an unqualified pathname, ABL searches directories based on the PROPATH environment variable. This filename follows normal operating system
+    naming conventions and is case sensitive on UNIX. In Windows, the pathname cannot
+    include characters outside of the non-Unicode code page. See Internationalize ABL Applications for more information about Unicode and code
+    pages.
+
+    When ABL compiles the main procedure (the procedure
+    containing the { } include file reference), it copies
+    the contents of include-file into that procedure,
+    substituting any arguments. So, you can use included procedures with arguments even
+    when you precompile a procedure.
+
+argument: A value used by include-file, as a positional
+    argument.
+
+    With positional arguments, the first argument replaces {1} in
+    the included file, the second argument replaces {2},
+    and so on.
+
+&argument-name = "argument-value": A name/value pair used by include-file as
+    a named argument. The argument-name is
+    the name of the argument you want to pass to the include file. You
+    can use variable names, field names, and reserved words as argument
+    names. The argument-value is the value of the
+    argument you pass to the include file. Enclose the argument-value in
+    quotation marks, as shown.
+
+    With named arguments, argument-value replaces {&argument-name} in
+    the included file.
+
+Examples
+
+The r-inc1.p procedure
+uses externally defined and maintained files (r-fcust.i and r-dcust.i) for
+the layout and display of a customer report. You can use these same
+include files in many procedures.
+
+r-inc1.p
+
+r-fcust.i
+
+r-dcust.i
+
+The r-incl2.p example references
+an include file (r-show.i) that can take up
+to five arguments, and the main routine passes four arguments.
+
+r-incl2.p
+
+r-show.i
+
+When the main procedure is compiled, the line
+referencing the r-show.i include file is replaced
+by the following line:
+
+This example shows how you can use include files
+to extend ABL. The main procedure uses a new statement, r-show.i,
+to display the values of fields or variables at various points in
+a procedure. The include file in this example can handle up to five
+passed arguments. The main procedure only passes four (point-A,
+var1, var2, and var3).
+
+The r-custin.p procedure
+displays a frame for each customer that you can update with customer
+information. The procedure includes r-cstord.i and
+passes the named argument &frame-options, and
+the value of the argument (CENTERED ROW 3 NO-LABEL) to the include
+file. When the include file references the &frame-options argument,
+it uses the value of the argument, and therefore displays the OVERLAY
+frame cust-ord as a centered frame at row 3 without
+a label.
+
+r-custin.p
+
+r-cstord.i
+
+Include files are particularly useful for using
+form layouts in multiple procedures, especially if you do not include
+the keyword FORM or the closing period (.) of the FORM statement.
+Thus, the following r-incl3.p procedure includes
+the r-cust.f file as the definition of a FORM
+statement.
+
+r-incl3.p
+
+r-cust.f
+
+The r-incl4.p procedure
+uses the same include file as a layout for a DISPLAY statement:
+
+r-incl4.p
+
+Notes
+
+ You
+  can pass a series of positional arguments or a series of named arguments
+  to an include file, but you cannot pass a combination of positional
+  and named arguments to an include file.
+ When you use braces to include one procedure in another, ABL
+  does not include the second procedure until it compiles the first
+  one. This technique has the same effect as using the Editor to copy
+  statements into the main procedure. At times, separate include files
+  are easier to maintain.
+ You can nest include files. (They can contain references to
+  other include files.) The number of nested include files is limited
+  by the number of file descriptors available on the system.
+ When you have a base procedure and want to make several copies
+  of it, changing it slightly each time, use include files with parameters.
+  For example, at times you might only want to change the name of
+  some files or fields used by the procedure.
+ If you define a preprocessor name and later pass a compile-time
+  argument with the same name, but a different value, to a procedure
+  or include file, the value of the initial preprocessor name remains
+  unchanged. Thus, a compile-time argument is scoped to the file to
+  which it is passed.
+ Instead of maintaining duplicate source files, create a single
+  include file with the variable portions (such as the names of files
+  and fields) replaced by {1}, {2}, etc. Then each procedure you write
+  can use that include file, passing file and field names as arguments.
+ You can use the name of an include file as an argument to another include
+  file. For example, a reference to {{1}} in an include file causes
+  ABL to include the statements from the file with the name that passed
+  as the first argument.
+ ABL disregards an empty pair of braces ({}).
+ If you use double quotes (" ") around arguments in an argument
+  list, ABL removes them. However, if you use single quotes (' '),
+  ABL passes them. To pass one set of double quotes, you must use
+  four sets of double quotes.
+ When ABL reads an include file into the source, it appends a
+  space character to the end of an include file. For example, the
+  following include file r-string.i contains
+  data that is used by r-incstr.p.
+
+  r-string.i
+
+  r-incstr.p
+
+  Although r-string.i contains
+  five letters, when you run r-incstr.p, it returns
+  the value 6 because ABL appends a space character to the end of r-string.i.
+• The maximum length of the arguments you can pass to an include
+  file is determined by the Input Characters (-inp) startup
+  parameter.
+
+See also
+
+{ } Argument reference, { } Preprocessor name reference, COMPILE statement, DEFINE PARAMETER statement, RUN statement
+
+
+
+
+OPEN-CURLY-BRACKET} Preprocessor name reference
+
+ABL Syntax Reference - { } Preprocessor name reference
+References the value of a preprocessor name
+in any ABL or preprocessor expression.
+
+Syntax
+
+Enter the braces ({}) as shown; they do not
+represent syntax notation in this description.
+
+&preprocessor-name: Expands the name, preprocessor-name, to its defined
+    value. You can define preprocessor names using either the &GLOBAL-DEFINE
+    preprocessor directive or the &SCOPED-DEFINE preprocessor directive.
+    ABL also provides a set of built-in preprocessor names that you
+    can reference for a variety of session information. The following
+    table lists each built-in preprocessor name with its description.
+
+    Table 1. Built-in
+    preprocessor names
+
+Example
+
+This
+procedure displays a message indicating whether the AVM is running on
+32- or 64-bit Windows. This example is not valid if compiled in
+a 32-bit AVM and run in a 64-bit AVM, and vice versa.
+
+The following table lists the additional built-in
+preprocessor names that apply to SpeedScript.
+
+Table 2. SpeedScript
+built-in preprocessor names
+
+Examples
+
+The r-prprc1.p procedure
+shows how you can reference a built-in preprocessor name and include
+it in a character string.
+
+r-prprc1.p
+
+The procedure r-prprc2.p shows
+how to capture the value of a {&SEQUENCE} reference. In this
+example, {&SEQUENCE} is referenced three times, once each to
+assign its value to wvar (0) and xvar (1)
+at run time. The third reference defines the preprocessor name Last-Value
+with the value 3. As shown, Last-Value is assigned unchanged to
+both yvar and zvar, each of which
+takes the value 3 at run time.
+
+r-prprc2.p
+
+The procedure r-prprc3.p shows
+how preprocessor names override compile-time arguments. In this
+example, r-prprc3.p defines the preprocessor
+name My-Name as "Daniel". It then passes the compile-time argument
+My-Name, with the value "David", to the include file r-prprc3.i,
+which in turn defines a preprocessor name My-Name as "Donald".
+
+r-prprc3.p
+
+r-prprc3.i
+
+During execution, the first message included
+by r-prprc3.i displays the value of the My-Name
+argument, "David". The second message included by r-prprc3.i displays
+the value of the following My-Name preprocessor name, defined as "Donald",
+permanently overriding "David" passed by the My-Name argument. Finally,
+the message in r-prprc3.p displays the value
+of the My-Name preprocessor name that was initially defined there,
+"Daniel", because the value from My-Name established in r-prprc3.i ("Donald")
+went out of scope during compilation.
+
+Note also that the reference
+to the My-Name compile-time argument in r-prprc3.i is
+inside double-quotes, because ABL passes string constant values
+for compile-time arguments without the surrounding double-quotes.
+
+You
+can encounter compilation problems mixing preprocessor names with compile-time
+argument names. The following example, a variation of r-prprc3.i,
+does not compile, even when passed a My-Name argument as an include
+file. This is because the preprocessor My-Name value overrides the
+argument My-Name value, as shown:
+
+Because the preprocessor My-Name defines a quoted
+"Donald" value, ABL replaces "{&My-Name}" in the fourth line
+with ""Donald"". This appears to the compiler as two empty strings
+and an unknown variable reference (Donald). Although you can do
+it with care, in general, avoid using the same names for compile-time
+arguments and preprocessor names.
+
+Notes
+
+ ABL
+  expands preprocessor names wherever and in whatever context it finds
+  them, including inside quoted character strings.
+ If you define a preprocessor name in the same file and with
+  the same name as a compile-time argument passed to the file, the
+  value of the preprocessor name takes precedence over the value of
+  the argument name from the point where the preprocessor name is defined.
+
+See also
+
+&GLOBAL-DEFINE preprocessor directive, &SCOPED-DEFINE preprocessor directive, { } Argument reference, { } Include file reference,; Special character
+
+
+
+
+() Expression precedence
+
+Parentheses raise expression precedence. Also,
+some functions require you to enclose arguments in parentheses.
+
+See also
+
+/ Division operator, Expression
+
+
+
+
+OS-,ND statement
+
+ABL Syntax Reference - OS-COMMAND statement
+Escapes to the current operating system and
+executes an operating system command.
+
+Syntax
+
+SILENT: After processing an operating system command, the AVM shell pauses. To
+    exit the window in Windows GUI platforms, you must type exit. To exit the window in Windows character platforms, you must type
+    exit and press RETURN or SPACEBAR. You can use the SILENT option to eliminate this pause.
+    Use this option only if you are sure that the program, command, or batch file does not
+    generate any output to the screen. Cannot be used with NO-WAIT.
+
+NO-WAIT: In a multi-tasking environment, causes the AVM to immediately pass
+    control back to next statement after the OS-COMMAND without waiting for
+    the operating system command to terminate. Cannot be used with SILENT.
+    This option is supported in Windows only.
+
+NO-CONSOLE: While processing an operating system command, the AVM creates a
+    console window. The console window may not be cleaned up after the command is executed.
+    You can use the NO-CONSOLE option to prevent this window from being
+    created in the first place.
+
+command-token | VALUE (expression): One or more command words and symbols that you want to pass the
+    operating system to execute. The VALUE option generates the command
+    tokens included in expression, a character string
+    expression. The specified combination of command-token and VALUE(expression) options can form any legal combination of commands and command
+    options permitted by the operating system. These can contain Unicode characters. See
+    Internationalize ABL Applications for more information
+    about Unicode.
+
+Example
+
+There are two principal uses for the OS-COMMAND statement:
+to execute a utility that has the same syntax on two or more different operating systems,
+and to execute an operating system statement input by a user.
+
+In both instances, the OS-COMMAND statement eliminates the
+need to use the OPSYS statement to determine the operating system and then
+use conditional logic to execute the appropriate code. The OS-COMMAND
+statement, therefore, makes an application more portable.
+
+This procedure prompts the user for an operating system command and then
+uses the OS-COMMAND statement to execute the command:
+
+r-os-com.p
+
+Notes
+
+ If you want to run an operating system internal command, such as Windows
+  dir, do not use the NO-WAIT keyword.
+  The results are unpredictable.
+ If you want to run an application that requires Windows, you must use
+  the NO-WAIT option.
+ The NO-WAIT option is unavailable in environments that
+  are not multi-tasking.
+ The OS-COMMAND statement always sets the value for the
+  OS-ERROR function to 0, whether or not an error occurs. Thus, an
+  operating system error is never returned for the OS-COMMAND
+  statement.
+ For client processes running on UNIX, OS-COMMAND starts a separate
+  process. The client keeps track of subprocesses spawned using an in-memory table with a
+  limit of 20 entries. Therefore, only 20 subprocesses can be open concurrently. If this
+  limit is exceeded, you will see an error:
+
+  To avoid this error, limit the number of subprocesses
+  running.
+
+  Note: INPUT THROUGH also starts a subprocess. For
+  INPUT THROUGH, you can use INPUT CLOSE to remove the
+  subprocess from the in-memory table.
+ On Windows only, when running 32-bit OpenEdge on a 64-bit operating system, if you
+  attempt to use the OS-COMMAND statement to run an executable in the
+  %WINDIR%\System32 directory, execution will fail. To remedy this,
+  you can do one of the following:
+• Put the files you want to access in the %WINDIR%\SysWOW64
+    directory.
+• Put the files you want to access in another directory and ensure that directory is
+    listed in %PATH%.
+• Change your code to use %WINDIR%\Sysnative, to force the
+    operating system to point to %WINDIR%\System32. Note that this
+    can cause problems if the application also runs under a 32-bit version of
+    Windows.
+
+See also
+
+DOS statement, OPSYS function, OS-ERROR function, UNIX statement
+
+
+
+
++  Addition operator
+
+ABL Syntax Reference - + Addition operator
+Adds two numeric expressions.
+
+Syntax
+
+expression: An expression whose value is numeric.
+
+Example
+
+In
+the following example, the addition operator (+) adds 100 to the
+value of the CreditLimit field:
+
+r-addn.p
+
+Note
+
+Adding
+two decimal expressions produces a DECIMAL value. Adding two INTEGER
+expressions produces an INTEGER value. Adding an integer expression
+(either INTEGER or INT64) and a decimal expression produces a DECIMAL
+value. Adding an INTEGER and an INT64 expression produces an INT64
+value.
+
+See also
+• Subtraction operator
+
+
+
+
++  Concatenation operator
+
+ABL Syntax Reference - + Concatenation operator
+Joins two character strings or expressions. The data type of the returned
+value matches the data type of the expressions passed to the function. When one expression
+is LONGCHAR and the other CHARACTER, the result is a LONGCHAR.
+
+Syntax
+
+expression: An expression whose value is a character string. If any expression
+    is a LONGCHAR, the result is a LONGCHAR. Also, the result converts
+    to the code page of the expression on the left.
+
+Example
+
+The r-conc.p procedure
+prints mailing labels. It uses the concatenation operator (+) to
+ensure that the third line of each label shows the city and state
+separated by a comma and a space. The FORMAT x(16) is specified
+to provide room for up to 16 characters in the result of the concatenation.
+If a FORMAT is not given, then the AVM displays only the first eight
+characters of the result since x(8) is the default format for a
+character expression.
+
+r-conc.p
+
+This is a label produced by this procedure:
+
+Notes
+
+If any of
+the string values you concatenate is the Unknown value (?),
+then the result is the Unknown value (?). This might lead
+to unexpected results if a field used in an expression is not mandatory.
+For example, you might have fields for a person's first name, last
+name, and middle initial. You might combine these into a full name
+with an expression like the following:
+
+If minit is not a mandatory
+field, it might be set to the Unknown value (?) in some
+records. If so, then those records are displayed as the Unknown value (?).
+You can avoid this by using conditional code. For example:
+
+
+
+
++  Datetime addition operator
+
+ABL Syntax Reference - + Datetime addition operator
+Adds a number of milliseconds to a DATETIME
+or a DATETIME-TZ to produce another DATETIME or DATETIME-TZ.
+
+Syntax
+
+datetime: An expression that evaluates to a DATETIME value.
+
+milliseconds: An expression that evaluates to an integer value specifying
+    a number of milliseconds.
+
+datetime-tz: An expression that evaluates to a DATETIME-TZ value.
+
+Example
+
+This
+example returns the date and time exactly 24 hours later (dtTime)
+by calculating and adding the number of milliseconds in 24 hours
+to the present date and time (NOW function) and displays the result:
+
+Notes
+
+ To add a specific number of days and a specific number of milliseconds to a DATETIME,
+  use the DATETIME function. For example:
+
+  The DATETIME function ensures that the time portion remains within the valid
+  range, by adding day(s) to the date part when the time part goes over the number of
+  milliseconds in a day.
+ To add a specific number of days and milliseconds to a DATETIME-TZ, use the DATETIME-TZ function. For example:
+
+  The DATETIME-TZ function ensures that the time portion remains within the valid
+  range, by adding day(s) to the date portion when the time part goes over the number of
+  milliseconds in a day.
+
+See also
+• Date addition operator, - Datetime subtraction operator, ADD-INTERVAL function, DATETIME function, DATETIME-TZ function
+
+
+
+
++  Date addition operator
+
+ABL Syntax Reference - + Date addition operator
+Adds a number of days to a date, producing
+a date result.
+
+Syntax
+
+date: An expression that evaluates to a DATE value.
+
+days: An expression with a value of the number of days you want to
+    add to a date.
+
+Example
+
+The r-dadd.p procedure
+finds all unshipped orders that are at least one week overdue. If
+the order is not shipped and the promised date is more than seven
+days ago, the procedure finds the record for the customer who placed
+the order and displays the order and customer data.
+
+r-dadd.p
+
+Notes
+
+ To
+  add a specific number of days and a specific number of milliseconds
+  to a DATETIME, use the DATETIME function.
+  For example:
+
+  The DATETIME function ensures that the time
+  portion remains within the valid range, by adding day(s) to the
+  date part when the time part goes over the number of milliseconds
+  in a day.
+ To add a specific number of days and milliseconds to a DATETIME-TZ,
+  use the DATETIME-TZ function. For
+  example:
+
+  The DATETIME-TZ function ensures that the time
+  portion remains within the valid range, by adding day(s) to the
+  date portion when the time part goes over the number of milliseconds
+  in a day.
+
+See also
+• Date subtraction operator, + Datetime addition operator, ADD-INTERVAL function, DATE function
+
+
+
+
++= Addition assignment operator
+
+Adds a value to an ABL data element. Provides a shorter syntax for applying
+concatenation, numeric addition, and date-based addition.
+
+Syntax
+
+field += expression is equivalent
+to field = field + (expression).
+
+Note: Spaces are required around the assignment operator. You cannot write
+field+=expression.
+
+Note: This syntax can also be used in the
+ASSIGN, BUFFER-COPY,
+SET, and UPDATE statements.
+
+field: The name of an ABL data element to which you want to add the value of
+    expression, and that is defined with a data type that
+    is compatible with the data type of expression. Valid
+    data types are INTEGER, INT64, DECIMAL, CHARACTER, LONGCHAR, DATE, DATETIME,
+    and DATETIME-TZ. The data element can include:
+
+     A database or temp-table field
+     A variable scoped to the current procedure, user-defined function, or
+      method of a class, or an accessible class-based variable data
+      member, including a subscripted array variable
+     A parameter defined for the current procedure, user-defined function, or
+      method of a class, including a subscripted array parameter
+     A writable class-based or COM property, including a subscripted array
+      property
+     A writable handle attribute or system handle attribute
+     ABL syntax that specifies the CURRENT-VALUE statement, DYNAMIC-CURRENT-VALUE statement, DYNAMIC-PROPERTY statement, ENTRY statement, EXTENT statement, LENGTH statement,
+      PROPATH statement, or SUBSTRING statement
+
+expression: An expression with a data type that is consistent with the data type of
+    field.
+
+NO-ERROR: The NO-ERROR option is used to prevent the statement from raising ERROR and displaying error messages. With the
+    NO-ERROR option, if ERROR is raised, then the ABL element on the left-hand side of
+    the assignment is unchanged.
+
+Note: For more information on the rules related to assignment, see the notes section in
+the Assignment (=) statement reference entry.
+
+Examples
+
+The following example shows how to do string concatenation using the += assignment operator. Note that the data types (CHAR
+and LONGCHAR) are compatible.
+
+The following example shows how to do integer addition using the += assignment operator.
+
+The following example uses the +=
+assignment operator on variables with mixed numeric data types.
+
+The following example uses the +=
+assignment operator to add 7 days to a DATE variable.
+
+The following example uses the +=
+assignment operator to update a database field.
+
+The following example uses the +=
+assignment operator to update a class property:
+
+The following example code uses the +=
+assignment operator, within an ASSIGN statement,
+to update the CreditLimit field and the myCtr variable.
+
+The following example code uses the += assignment operator to add to
+the PROPATH.
+
+See also
+
+Assignment (=) statement, ASSIGN statement, + Addition operator, + Concatenation operator, + Date addition operator, + Datetime addition operator
+
+
+
+
++  Unary positive operator
+
+ABL Syntax Reference - + Unary positive operator
+Preserves the positive or negative value of
+a numeric expression. Do not confuse this operator with the addition
+operator that you use to add expressions together.
+
+Syntax
+
+expression: An expression whose value is numeric.
+
+Example
+
+In
+the r-unpos.p example, the sign of CreditLimit is
+preserved as is the sign of the sum of CreditLimit +
+The unary positive is not necessary; it is used simply to document
+the procedure, as shown:
+
+r-unpos.p
+
+See also
+• Unary negative operator
+
+
+
+
+QUESTION-MARK : Safe navigation operator
+
+ABL Syntax Reference -?: Safe navigation operator
+The question mark-colon (?:) is a symbol for the
+Safe Navigation Operator. It supports the conditional execution of a chain of
+object-oriented ABL cascading element references. The? in the
+symbol indicates conditional execution. The Safe Navigation Operator provides the
+ability to write crisp, object-oriented ABL code that is the equivalent of an
+elaborate IF...THEN...ELSE block.
+
+Syntax
+
+Object-reference: Reference to an instance of an ABL class that defines the
+    specific data member as an instance member (non-static).
+
+class-member-name: The name of a data member or member method you want to
+    access. A class member is an element that is defined in and at the level of
+    a class definition.
+
+The following rules apply when using the safe navigation
+operator:
+
+ White space is not permitted between the question mark and the
+  colon punctuation of the Safe Navigation Operator (?:). If
+  present, the AVM terminates the compilation and throws a syntax error.
+ The Safe Navigation Operator cannot be used on the left-hand side of an
+  assignment expression.
+ The Safe Navigation Operator can only be used with
+  object-oriented ABL objects. It is not available for use with non
+  object-oriented ABL built-in widgets.
+ Upon finding the Safe Navigation Operator, the AVM tests if the
+  object on the left-hand side of the operator is valid before de-referencing the
+  object on the right-hand side of the operator. If the object on the left-hand
+  side of the operator is invalid, the AVM stops further de-referencing of chained
+  methods and returns the Unknown (?) value.
+ The Safe Navigation Operator performs a short-circuit evaluation
+  of chained elements. It stops the execution of the chain as soon as it discovers
+  an invalid object reference and returns the Unknown (?)
+  value.
+ To check if the expression is executed successfully use the
+  following expression:
+
+  _
+
+    If return-value is? then do <something>.
+
+See also: Punctuation
+
+
+
+
+QUESTION-MARK Special character
+
+ABL Syntax Reference -? Special character
+The question mark is a special character that
+represents the Unknown value. ABL treats a quoted question mark ("?")
+in a procedure or an input field as a question mark character. It
+treats an unquoted question mark (?) in a procedure
+or an input field as an unknown value.
+
+The following table indicates the results when using the Unknown value
+(?) in a comparison expression (EQ,
+GE, GT, LE, LT,
+NE). These results are true for both character and integer variables.
+
+Table 1. Using the Unknown value (?) in comparison
+operations
+
+Note: WebSpeed treats an unquoted question mark (?) in an HTML input field as a character.
+
+Additional
+points about the Unknown value (?) are:
+
+ Any
+  number of Unknown value (?) records can be in a unique
+  index. This is useful in cases where you want to defer choosing
+  key values for a unique index.
+ If you define a field as mandatory in the Dictionary, that field
+  cannot contain the Unknown value (?) when the AVM writes
+  the record to the database.
+ For sorting and indexing purposes, the Unknown value (?) sorts high. This means that fields with the Unknown value
+  (?) are sorted after all other values, so when you
+  display all records of a table, the records with the Unknown value (?) in the field(s) used for ordering the record appear last.
+  However, if the query does a range match on that field, the rules in Table 1 still apply.
+  That is, a query with a WHERE clause with
+  "field = operator, GT or > operator, IF...THEN...ELSE statement, LE or operator
+
+
+
+
+SEMICOLON Punctuation
+
+ABL Syntax Reference -; Punctuation
+The ANSI SQL (-Q) startup parameter allows
+you to redefine the semicolon as a terminator. This startup parameter enforces strict ANSI
+SQL conformance and allows you to terminate SQL statements with a semicolon. The ANSI SQL
+(-Q) parameter allows OpenEdge to run standard SQL
+statements and scripts built with other products.
+
+The
+ANSI SQL (-Q) parameter disables the use of the semicolon
+within UNIX escapes.
+
+As a general rule, use the period (.) as a terminator
+for ABL statements even when you specify the ANSI SQL (-Q)
+parameter for an ABL session.
+
+
+
+
+SEMICOLON Special character
+
+ABL Syntax Reference -; Special character
+This special character is supported only for
+backward compatibility.
+
+The semicolon (;), when combined with
+a second character in the Procedure Editor, provides alternative
+representations of special characters as follows:
+
+To
+suppress the semicolon's interpretation as a special character,
+precede it with a tilde (~). For example, to enter the
+string;< in the Procedure Editor and not have ABL interpret
+it as an open bracket, type ~;<.
+
+Additionally, if
+an ASCII character is mapped to an extended alphabetical character
+by an IN statement in the PROTERMCAP file, you can enter the extended
+character in the Procedure Editor by preceding the ASCII character with
+a semicolon. For example, if [ is mapped to Ä, ABL interprets the;[ sequence
+as Ä.
+
+
+
+
+SINGLE-QUOTE Special character
+
+ABL Syntax Reference - ' Special character
+The function of the single quote (') is the
+same as the double quote. But, if you use single and double quotes
+in a statement, the compiler checks the outermost quotes first,
+giving them precedence over the innermost quotes. For example, DISPLAY
+'"test"' shows up as "test", (ABL reads
+the double quotes literally), and DISPLAY "'test2'" shows
+up as 'test2'.
+
+See also
+
+" "Character-string literal
+
+
+
+
+TILDE Special character
+
+ABL Syntax Reference - ~ Special character
+The tilde (~) is an escape character that causes
+the AVM to read the following character literally. A tilde followed
+by three octal digits represents a single character. Use it as a
+lead-in to enter the special characters shown in the following table.
+In a procedure, a tilde followed by something other than the items
+in the following table is ignored. For example, "~abc" is
+treated as "abc". (This may not work as expected
+when passing parameters to an include file.) The items in the following
+table are case sensitive.
+
+Table 1. Entering special characters in the Procedure Editor
+
+
+
+
+NEXT-SIBLING property
+
+The object reference for the next ABL or.NET
+class instance in the list of instances created in the current ABL
+session. The value of this property is available after obtaining
+a valid object reference (for example, by using the SESSION:FIRST-OBJECT
+attribute to obtain the object reference for the first class instance
+in the list). If there are no class object instances in the current
+session, or you have gone past the last class instance in the list,
+this attribute returns the Unknown value (?).
+
+Data type:
+Progress.Lang.Object class
+
+Access: PUBLIC Read-only
+
+Applies
+to:
+Progress.Lang.Object class
+
+Once your position in the list is established,
+you can use the NEXT-SIBLING and PREV-SIBLING properties to walk
+the list of class object instances.
+
+There are two points worth
+noting about this property with garbage collection enabled:
+
+ The
+  object references maintained by the NEXT-SIBLING property and the
+  FIRST-OBJECT attribute do not count as references for garbage collection.
+  That is, if a class instance is referenced only on the session object
+  chain, it is available for automatic garbage collection.
+ When an ABL object that inherits from a.NET object is on the
+  session object chain, it can have circular references that prevent
+  it from being deleted (as with pure ABL objects). When there are
+  no more ABL references to such an ABL-derived.NET object, the object
+  is removed from the object chain, but may still be instantiated
+  because of references to it from.NET. If the application re-obtains
+  a reference to the object in ABL by getting it from.NET, the reference
+  is again placed on the object chain.
+
+To check the validity
+of an object reference, use the VALID-OBJECT function.
+
+See also
+
+PREV-SIBLING property
+
+
+
+
+PREV-SIBLING property
+
+The object reference for the previous ABL or.NET class instance in the list of instances created in the current
+ABL session. The value of this property is available after obtaining
+a valid object reference (for example, by using the SESSION:LAST-OBJECT
+attribute to obtain the object reference for the last class instance
+in the list). If there are no class object instances in the current
+session, or you have gone past the first class instance in the list,
+this attribute returns the Unknown value (?).
+
+Data
+type:
+Progress.Lang.Object class
+
+Access: PUBLIC Read-only
+
+Applies
+to:
+Progress.Lang.Object class
+
+Once your position in the list is established,
+you can use the NEXT-SIBLING and PREV-SIBLING properties to walk
+the list of class object instances.
+
+There are two points worth
+noting about this property with garbage collection enabled:
+
+ The
+  object references maintained by the PREV-SIBLING property and the
+  LAST-OBJECT attribute do not count as references for garbage collection.
+  That is, if a class instance is referenced only on the session object
+  chain, it is available for automatic garbage collection.
+ When an ABL object that inherits from a.NET object is on the
+  session object chain, it can have circular references that prevent
+  it from being deleted (as with pure ABL objects). When there are
+  no more ABL references to such an ABL-derived.NET object, the object
+  is removed from the object chain, but may still be instantiated
+  because of references to it from.NET. If the application re-obtains
+  a reference to the object in ABL by getting it from.NET, the reference
+  is again placed on the object chain.
+
+To check the validity
+of an object reference, use the VALID-OBJECT function.
+
+See also
+
+NEXT-SIBLING property
+
+
+
+
+FIND-FAILED event
+
+Handle-based Object Events Reference - FIND-FAILED event
+The FIND-FAILED event occurs when a FIND on a ProDataSet temp-table buffer
+fails. This can be the result of the FIND statement, the FIND-FIRST() method, or the
+FIND-UNIQUE() method. FIND-FAILED is NOT fired for FIND NEXT, FIND PREV, or FIND LAST
+statements, the CAN-FIND function, or the FIND-LAST() method.
+
+You can use this event to adjust the contents of the ProDataSet object. The
+event handler must be able to determine the action to take based on the context of the
+ProDataSet object, and must RETURN NO-APPLY to indicate the action was successful. For
+example, when the event occurs, the event handler could retrieve or create a missing row or a
+set of related rows into the temp-table and RETURN NO-APPLY so the AVM can redo the operation
+that raised the event and continue processing.
+
+
+
+
+Frame-only direct manipulation events
+
+Handle-based Object Events Reference - Frame-only direct manipulation events
+The following table lists the direct manipulation events
+that apply only to frames.
+
+Table 1. Frame-only
+direct manipulation events
+
+
+
+
+OFF-END event
+
+Handle-based Object Events Reference - OFF-END event
+The OFF-END event occurs when you position a query on
+a ProDataSet temp-table buffer past the last row. You can use this
+event to retrieve additional data source rows to add at the bottom
+of a ProDataSet temp-table (for example, in batches when there are
+too many data source rows to retrieve at one time).
+
+The OFF-END event can also occur when the user performs a keyboard or mouse action in a
+browse that scrolls off the end (past the last row) of a browse on a ProDataSet temp-table
+buffer. For more information about using the OFF-END event with a browse, see High-level widget events.
+
+Note: The OFF-END event is similar to the QUERY-OFF-END attribute, which is set to TRUE whenever the associated query object
+is positioned past the last row. The difference is that you must
+test the QUERY-OFF-END attribute for this condition at a specific
+place in your application code, whereas the OFF-END event procedure
+executes like a trigger whenever the event occurs.
+
+Consider the following restrictions when using the OFF-END event
+with a query on a ProDataSet temp-table buffer:
+
+ You can attach these events only to a query on a single
+  ProDataSet temp-table buffer. You cannot attach these events to
+  a query on a database buffer, or a query that involves a join.
+ The query must be a scrolling query.
+ If you never RETURN NO-APPLY, from the OFF-END event handler,
+  the query will infinitely loop.
+ Call the SET-CALLBACK-PROCEDURE() method before the query is
+  opened.
+ If you use the GET LAST statement or GET-LAST() method to get the
+  last record associated with the query, the event handler is called repeatedly
+  until it does not RETURN NO-APPLY (indicating that all records
+  have been retrieved). For this reason, use caution when offering
+  users the GET LAST action.
+ The INDEXED-REPOSITION option is ignored for the query.
+
+
+
+
+READ-RESPONSE event
+
+Handle-based Object Events Reference - READ-RESPONSE event
+AVM Detects — Data is available on a socket or the remote end of a
+connection has closed its socket; applies only to socket objects.
+
+AVM Action — The AVM invokes the READ-RESPONSE event method or
+procedure.
+
+The SET-CALLBACK() method is used to name the READ-RESPONSE event method or
+procedure and to associate it with a socket object. The AVM invokes this method or procedure
+whenever it detects that data is available on the socket or that the remote end of the socket
+has closed its end of the socket. In this method or procedure, the SELF handle identifies the
+affected socket object.
+
+Note: The SET-READ-RESPONSE-PROCEDURE () can also be used to name the
+event procedure, but this is only for procedures. The SET-CALLBACK() method can be used for
+both procedures and methods, and is preferable.
+
+To determine if the event method or procedure was invoked because data is
+available for reading or because of a disconnect, the application can use one of several
+methods:
+
+ The CONNECTED() method returns FALSE if the socket is not connected
+  to a port, TRUE if it is connected.
+ The GET-BYTES-AVAILABLE() method returns zero if the socket
+  is not connected to a port or the number of bytes available for
+  reading if it is connected.
+• The READ() method returns FALSE if the socket is not connected
+  to a port. It returns TRUE and the read data if it is connected.
+
+
+
+
+Row-level events
+
+Handle-based Object Events Reference - Row-level events
+Row-level events are defined for making local changes
+to the records in a ProDataSet member buffer object. The following
+table lists the row-level events.
+
+Table 1. Row-level events
+
+
+
+
+Three-button mouse events
+
+Handle-based Object Events Reference - Three-button mouse events
+The following table lists the mouse events associated
+with physical mouse buttons.
+
+Table 1. Three-button
+mouse events
+
+
+
+
+Triggers and low-level keyboard events
+
+Handle-based Object Events Reference - Triggers and low-level keyboard events
+Some low-level keyboard events cannot have associated
+triggers and maintain their default behavior at the same time. In
+general, if the AVM gets an event from the user interface system
+(UIS) that has a trigger associated with it, the AVM handles the
+default behavior and tells the UIS to ignore the event. This allows
+the AVM to cancel the default behavior in response to a RETURN NO-APPLY
+invoked by the trigger.
+
+However, there are some low-level keyboard events for which the
+AVM does not handle the default behavior. These include the cursor
+keys, especially. When the AVM gets one of these events with an
+associated trigger, it tells the UIS to ignore the event as usual,
+but because the AVM does not handle the default behavior for the
+event, the standard UIS behavior is lost, as well. Thus, a cursor
+key event (for example, CURSOR-UP) that has an associated trigger
+does not move the cursor.
+
+Note that for many low-level events, such as mouse button and
+printable character events in fill-in fields and editors, the AVM does provide
+the default handling. Triggers on these events have no effect on
+the default event behavior unless they return NO-APPLY. The same
+is true of keyboard events that generate high-level functions, such
+as TAB and RETURN.
+
+For those low-level, non-printable, keyboard events that are
+not handled by the AVM, do not associate triggers with them unless
+you do not want the default behavior of the event. For those low-level
+events that have no standard UIS behavior (such as, programmable
+function keys) triggers have no negative effects, and in fact, are
+very useful in defining a program action. In general, check any
+questionable low-level events in a test procedure both before and after
+associating triggers with them to see if any standard behavior is
+affected. An empty trigger block is sufficient to detect differences
+in behavior. For example:
+
+For more information, see ON statement.
+
+
+
+
+Data-type
+
+The following syntax lists the supported COM data types
+for specifying any Data-type required for accessing
+a COM object property or method:
+
+Syntax
+
+The requirements for using the OUTPUT, INPUT-OUTPUT, BY-VARIANT-POINTER,
+BY-POINTER, and AS Data-type options depend on the COM
+object method or property, the implementation of the COM object, and how you plan to use the
+parameter or property in your application. In many cases, expression is all that you require for a property write or method parameter.
+For more information on and examples of accessing COM object properties and methods, see the
+information on COM object references in the topics on ActiveX Automation and in the topics
+on control container support in OpenEdge Programming
+Interfaces.
+
+
+
+
+Handle-based references
+
+You must access all handle attributes and methods with
+reference to a handle-based object or its handle using this general
+syntax:
+
+Syntax
+
+The handle-based-reference must
+conform to the following syntax:
+
+An object-name-reference is a name reference to a static handle-based
+object, such as the defined name of a frame or window, or of another static handle-based
+object, such as a temp-table or buffer. For more information, see Object name references. A handle-reference can
+be a handle value that references any handle-based object (static or dynamic), or it can be
+a system handle. For more information, see Handle references.
+
+The attribute-or-method-access identifies
+a given attribute or method associated with the specified handle-based-reference.
+
+The container-widget-name is
+a name reference to a static container widget for the static widget
+referenced by object-name-reference. You need
+it only if the static widget reference is ambiguous.
+
+For
+more information on attribute-or-method-access and
+how to access:
+
+ Attributes, see Handle attribute access
+ Methods, see Handle method calls
+
+The
+following sections provide more information on the object-name-reference and handle-reference options.
+
+
+
+
+RCODE-INFO handle
+
+A handle to a specific ABL r-code file.
+
+Syntax
+
+attribute: Specifies an attribute of the RCODE-INFO handle.
+
+Attributes
+
+Example
+
+The
+following example prompts for the name of an r-code file and returns its
+CRC code and the languages for which it is compiled:
+
+r-rcode.p
+
+Notes
+
+ In Windows, the filename cannot contain characters outside of the
+  non-Unicode code page. See Internationalize ABL Applications
+  for more information about Unicode and code pages.
+ ABL generates an r-code file when you compile a procedure with the
+  SAVE option of the COMPILE statement. You cannot use the RCODE-INFO handle to get information
+  on session compiles.
+ To use the RCODE-INFO handle, you must first set the
+  FILE-NAME attribute to the name of an r-code file (with or without a.r or.p
+  extension). If you do not provide a full pathname, ABL searches your PROPATH to find the
+  file. You can then read the CRC-VALUE attribute and
+  LANGUAGES attribute to get information on the file. If the r-code file
+  is not found, both LANGUAGES and CRC-VALUE are set to
+  the Unknown value (?).
+ The LANGUAGES attribute holds a comma-separated list of
+  language names supported by the r-code. The default segment appears in the list as the
+  value.
+ The CRC-VALUE attribute returns the r-code CRC value
+  stored in the r-code. The calculation for this value is based on the filename and contents
+  of the procedure file during compilation. This value is different from any database CRCs
+  that are stored in the r-code. For more information on CRCs, see Manage ABL Applications.
+ The TYPE attribute returns the widget type,
+  PSEUDO-WIDGET.
+• The DISPLAY-TYPE attribute holds a value of "GUI" for a graphical display, "TTY" for a character-mode display, or a blank string ("") for code that does
+  not contain any display-specific statements. Use of this attribute allows developers to
+  determine if the r-code contains statements that make it executable only in the same
+  display environment on which it was compiled.
+
+
+
+

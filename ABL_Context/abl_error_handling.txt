@@ -1,0 +1,231 @@
+BLOCK-LEVEL ON ERROR UNDO , THROW statement
+
+ABL Syntax Reference - BLOCK-LEVEL ON ERROR UNDO, THROW statement
+Use this statement in a procedure (.p) or class (.cls) file to change the
+default ON ERROR directive to ON ERROR UNDO, THROW for
+all blocks that have a default error directive associated with them. (A simple DO block, for
+example, does not have default error handling and is not affected by this statement.). This
+is specifically for ERROR, not STOP conditions because
+STOP conditions are already thrown by default. The statement must come
+before any executable or DEFINE statements in a file. However, it can come
+either before or after a USING statement.
+
+Syntax
+
+This statement affects the following block types:
+
+ Procedure (also called main block, external procedure, or.p file, including database trigger.p
+  files)
+ Internal procedures
+ User-defined functions
+ Methods of a class
+ Class constructors
+ Property accessors
+ ON blocks used as database triggers with
+  CREATE, DELETE, WRITE or
+  ASSIGN events
+ REPEAT blocks
+ FOR blocks
+ DO TRANSACTION blocks
+
+This statement does not affect:
+
+ Destructors
+ Error directives that are explicitly coded in individual, non routine-level
+  blocks
+ ON blocks that are UI triggers.
+
+Note these alternatives to the BLOCK-LEVEL ON ERROR UNDO,
+THROW statement:
+
+ Instead of adding the statement to source-code files, you can use the
+  -undothrow 2 startup parameter to change the default
+  error-handling to UNDO, THROW on every block affected by the
+  BLOCK-LEVEL statement during compilation. See the Startup Command and Parameter Reference for more
+  information.
+ The ROUTINE-LEVEL ON ERROR UNDO, THROW statement
+  can be used if you want to change the default error-handling only on routine-level blocks.
+  (You can use the -undothrow 1 startup parameter to change
+  the default error handling on routine-level blocks to UNDO, THROW during
+  compilation.)
+
+Example
+
+An error propagates from the DO TRANSACTION block to the
+internal procedure, from the internal procedure up to the main.p file (b-BLOCK-LEVEL-01.p), and finally up to the
+CATCH block in the calling.p file (b-BLOCK-LEVEL-02.p). An error is raised at each of these levels. At each level
+the ON ERROR UNDO, THROW directive takes effect.
+
+b-BLOCK-LEVEL-01.p
+
+b-BLOCK-LEVEL-02.p
+
+Notes
+
+ The BLOCK-LEVEL ON ERROR UNDO, THROW statement
+  guarantees that all unhandled errors in affected blocks are propagated up to the caller.
+  You can decide whether to handle errors at the block level with a CATCH
+  statement, or to handle all errors with a CATCH block at a higher
+  level.
+ The BLOCK-LEVEL statement affects the same blocks as
+  the ROUTINE-LEVEL ON ERROR UNDO, THROW statement, plus
+  REPEAT, FOR, and DO TRANSACTION
+  blocks. Therefore, there is no need to add both statements to a file. If both statements
+  exist in a file, the more inclusive BLOCK-LEVEL statement takes
+  precedence.
+ Error objects can be thrown from an application server and handled by a
+  CATCH block on an ABL client. To be throwable from an
+  application server to an ABL client, user-defined error classes must be defined on both
+  the server and client sides, and the classes must be defined as SERIALIZABLE. For the full list of restrictions on class-based objects that
+  are passed between application server and client, see the Parameter passing syntax entry. For more
+  information on error handling in general, see ABL Error
+  Handling.
+
+See also
+
+ON ENDKEY phrase,
+ON ERROR phrase,
+ON QUIT phrase,
+RETURN statement, RETURN-VALUE function, ROUTINE-LEVEL ON ERROR UNDO, THROW statement, STOP statement, UNDO-THROW-SCOPE attribute
+
+
+
+
+ROUTINE-LEVEL ON ERROR UNDO , THROW statement
+
+ABL Syntax Reference - ROUTINE-LEVEL ON ERROR UNDO, THROW statement
+Use this statement in a procedure (.p) or class
+(.cls) file to change the implicit, default ON ERROR directive from UNDO, RETRY to UNDO, THROW for all routine-level blocks in a file. This is
+specifically for ERROR, not STOP conditions because STOP conditions are
+already thrown by default. The statement must come before any executable or DEFINE statements in a file. However, it can come either before
+or after a USING statement. In a.cls
+file, the statement must come before the CLASS statement.
+
+Syntax
+
+The following blocks are the routine-level blocks
+affected by this statement:
+
+ Procedure (also called main block, external procedure, or.p file, including database trigger.p
+  files)
+ Internal procedures
+ User-defined functions
+ Methods of a class
+ Class constructors
+ Property accessors
+ ON blocks used as database triggers with
+  CREATE, DELETE, WRITE or
+  ASSIGN events
+
+This statement does not affect:
+
+ Destructors
+ DO, FOR, or REPEAT
+  blocks contained within the routine-level blocks
+ ON blocks that are UI triggers.
+
+Note these alternatives to the ROUTINE-LEVEL ON ERROR UNDO,
+THROW statement:
+
+ Instead of adding the statement to source-code files, you can use the
+  -undothrow 1 startup parameter to change the default
+  error handling on routine-level blocks to UNDO, THROW
+  during compilation. See the Startup Command and Parameter
+  Reference for more information.
+ The BLOCK-LEVEL ON ERROR UNDO, THROW statement can be used if you want to change the default error handling on
+  REPEAT, FOR, and DO TRANSACTION
+  blocks in addition to routine-level blocks. (You can use the -undothrow 2 startup parameter to change the default error-handling to
+  UNDO, THROW on every block affected by the BLOCK-LEVEL
+  statement during compilation.)
+
+Example
+
+This
+code propagates an error from an internal procedures up to the main procedure
+block.
+
+r-ROUTINE-LEVEL-01.p
+
+Notes
+
+ The ROUTINE-LEVEL ON ERROR UNDO, THROW
+  statement guarantees that all unhandled errors in a subprocedure of a persistent
+  procedure, or method of a class, are propagated up to the caller. You decide for each
+  subprocedure, or method within the file, whether that subprocedure or method should handle
+  errors with its own CATCH block. Alternatively, you may
+  want a CATCH block at the caller level to handle errors.
+  This can be useful if a caller calls many internal procedures in a persistent procedure or
+  many methods in a class.
+ You cannot change the default behavior for individual routine-level
+  blocks to throw or rethrow errors.
+• Error objects can be thrown from an application server and handled by a
+  CATCH block on an ABL client. To be throwable from an
+  application server to an ABL client, user-defined error classes must be defined on both
+  the server and client sides, and the classes must be defined as SERIALIZABLE. For the full list of restrictions on class-based objects that
+  are passed between application server and client, see the Parameter passing syntax entry. For more
+  information on error handling in general, see ABL Error
+  Handling.
+
+See also
+
+BLOCK-LEVEL ON ERROR UNDO, THROW statement, ON ENDKEY phrase, ON ERROR phrase, ON QUIT phrase, RETURN statement, RETURN-VALUE function, STOP statement, UNDO-THROW-SCOPE attribute
+
+
+
+
+Date Format (-d)
+
+Startup Command and Parameter Reference - Date Format (-d)
+Use Date Format (-d) to specify the format
+used to display dates in an application using a three-character string of the letters:
+d, m, and y in any order. This startup parameter provides the same
+functionality as the SESSION:DATE-FORMAT attribute..
+
+dateform: The format used to display dates in an application.
+
+Note:
+
+ The -d sets the display format not
+  the storage format. The storage format is fixed.
+ The date constants entered in procedures, or as initial values in the Data Dictionary,
+  are always specified in month/day/year format.
+
+
+
+
+UNDO , THROW Error Handling (-undothrow)
+
+Startup Command and Parameter Reference - UNDO, THROW Error Handling (-undothrow)
+Change the default error handling to UNDO, THROW in routine
+or other blocks.
+
+n: A value (either 1 or 2) that specifies whether you want to change the
+    default error-handling to UNDO,THROW for routine-level blocks only, or
+    for other blocks as well.
+
+    Set n to
+    1 to change the default behavior for routine-level blocks only. Routine-level blocks
+    include the main block of an external procedure (.p), internal procedures,
+    user-defined functions, methods of a class, class constructors, property accessors,
+    and ON blocks used as database triggers with CREATE,
+    DELETE, WRITE, or ASSIGN events.
+
+    Set n to 2 to change the
+    behavior for REPEAT, FOR, and DO
+    TRANSACTION blocks in addition to all of the routine-level blocks.
+
+    Any value other than 1 or 2 will throw an error and terminate the
+    session.
+
+Note: The -undothrow startup
+parameter has no effect on r-code. Error handling cannot be changed after code is compiled.
+The -undothrow parameter takes effect only during a compile
+of.p or.cls source files.
+
+An alternative to the -undothrow startup parameter is to add either ROUTINE-LEVEL ON ERROR UNDO, THROW or BLOCK-LEVEL ON
+ERROR UNDO, THROW statements to your source files. For more information about
+these statements, see ABL Reference.
+
+
+
+

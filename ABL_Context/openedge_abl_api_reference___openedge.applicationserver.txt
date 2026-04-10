@@ -1,0 +1,66 @@
+
+OpenEdge ABL API Reference - OpenEdge.ApplicationServer.AgentInfo
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ApplicationServer.AgentManager
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ApplicationServer.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:22
+
+
+OpenEdge ABL API Reference - OpenEdge.ApplicationServer.Util.OEManagerConnection
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ApplicationServer.Util.OEManagerEndpoint
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ApplicationServer.Util.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:22

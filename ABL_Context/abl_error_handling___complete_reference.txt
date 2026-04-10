@@ -1,0 +1,557 @@
+This document contains all ABL Error Handling documentation.
+
+
+ABL Error Handling - Block Flow of Control and Condition Directives
+The ON phrase is one of the ABL constructs used for altering the default error
+handling for basic blocks. For information on default error (condition) handling see
+Default Condition Handling. There is a variation of the ON
+phrase to control each of the ABL conditions:
+
+ ON ERROR …
+ ON STOP …
+ ON QUIT …
+ ON ENDKEY …
+
+The ON phrase can be used on the following blocks:
+
+There can be multiple ON phrases on the same block, separated by white
+space. For example:
+
+You cannot modify the error action on other blocks using the ON phrase.
+This includes:
+
+ Procedures (top-level or internal)
+ User-defined methods
+ User-defined property getter/setter blocks
+ Constructors/destructors
+ User-defined functions
+ UI trigger blocks
+ Database triggers (ON block with CREATE,
+  DELETE, WRITE, or ASSIGN
+  event)
+
+However, there is a way to change the default error handling for most of these
+blocks, at a block or routine level. This is described in the section on Use UNDO, THROW.
+
+BlocksthatsupportCATCHblocks
+
+ABL Error Handling - Blocks that support CATCH blocks
+The use of CATCH blocks is supported for all
+blocks that have error handling capabilities. CATCH cannot be
+used in a simple DO or DO
+WHILE block (one with no options), since these do not have implicit error handling;
+the compiler will not allow it. DO blocks must have an
+explicit TRANSACTION, ON ERROR
+UNDO, or ON STOP directive, in order to have a
+CATCH block.
+
+One or more CATCH blocks are positioned at the
+end of the associated block. If a FINALLY block
+is also used, the CATCH block comes before the FINALLY block.
+This is the syntax for an associated block using end blocks:
+
+Syntax
+
+CATCHBlocks
+
+ABL Error Handling - CATCH Blocks
+ABL provides CATCH blocks to enable you to trap
+an error or stop object and write code to handle the object. This set of topics discuss
+CATCH block syntax, usage, error handling precedence, UNDO scope, and nested CATCH
+blocks.
+
+ Introduction to CATCH blocks
+ CATCH block syntax and usage
+ Blocks that support CATCH blocks
+ Precedence of CATCH blocks
+ UNDO scope and relationship to a CATCH block
+ CATCH blocks within CATCH blocks
+
+CATCHblocksyntaxandusage
+
+ABL Error Handling - CATCH block syntax and usage
+Syntax
+
+object-variable: The variable name that references the object caught by this block.
+    Typically, you do not define the object-variable ahead of time with
+    the DEFINE VARIABLE statement. The AVM recognizes a new variable name
+    on the CATCH statement as a new object-variable
+    definition within the current scope. Each CATCH in an associated
+    block must have a unique object-variable. You can reuse an
+    object-variable name in a different associated block, if its type
+    is the same as the previous use. For all blocks with their own variable scope, such as
+    object methods or internal procedures, a CATCH statement inside that
+    context may reuse the same variable name as a CATCH statement outside
+    of that context even if the type is different.
+
+[ CLASS ] condition-class: Optionally, you can provide the CLASS keyword.
+
+    The code within a CATCH block only
+    executes if a condition of type condition-class (or
+    a subtype) is raised within the body of the associated block. When the condition is
+    raised, if there is an active transaction for the associated block, the transaction is
+    undone before the AVM begins executing the statements within the CATCH block. For more information, see the reference
+    entries for the DEFINE VARIABLE statement and the TRANSACTION option in the DO statement in
+    the ABL Reference.
+
+Examples
+
+Example 1
+
+In the following example, the CATCH block
+handles any ABL system error:
+
+Example 2
+
+The following example illustrates reuse of the
+object-variable name:
+
+Example 3
+
+An associated block may have multiple CATCH blocks, each of which handles a different error class. If an error type
+satisfies multiple CATCH statements, the AVM executes the
+code in the first CATCH block that is compatible with the
+error type. It does not execute multiple CATCH blocks.
+Therefore, if multiple CATCH blocks are specified, the more
+specialized error classes should come first, as shown:
+
+Example 4
+
+The compiler issues a warning message if a block contains a CATCH block that is not reachable. The following code produces a
+warning, since the CATCH of eMyAppError can never be reached:
+
+CATCHblockswithinCATCHblocks
+
+ABL Error Handling - CATCH blocks within CATCH blocks
+A CATCH block within a CATCH block only handles errors raised within the CATCH block. To prevent infinite looping, any UNDO, THROW statement within the top-level CATCH block, or any CATCH block
+nested within it, immediately throws the error to the block that encloses the associated
+block of the top-level CATCH block. For example:
+
+In this example, notice the UNDO, THROW
+statement within the nested CATCH block. If we get here,
+the AVM passes control to the block enclosing the associated block and raises ERROR there. In this case, the DO block is the associated block and the FOR
+EACH is the block enclosing the DO block. The
+CATCH anyError block on the FOR
+EACH block then handles the error.
+
+DefaultConditionHandling
+
+ABL Error Handling - Default Condition Handling
+The default for handling conditions in ABL is simple. It is scoped to blocks. Several things
+happen when an error occurs, when not explicitly handled by some ABL construct such as
+NO-ERROR or CATCH:
+If there is any error message associated with the condition, it is displayed
+   to the current output device. For an application server, the message is written to
+   the application server log.
+The current block is undone. If the condition occurred in an iterating block, it is
+   only the current block iteration that is undone.
+Any statements following the line where the condition occurred are not
+   executed. Program flow continues based on the default branching option for the block
+   type.
+
+   Note: If there is a FINALLY
+   block associated with the current block, it still runs even though an ERROR or STOP
+   condition occurred. For more information see FINALLY Blocks.
+For a STOP condition, STOP is raised again in the
+   outer block, if there is one, otherwise it is raised in the caller. From there the
+   same actions (1-4) are taken with respect to the new current block.
+
+IntroductiontoCATCHblocks
+
+ABL Error Handling - Introduction to CATCH blocks
+A CATCH block can be referred to as an end block because it defines end-of-block processing for the
+block that encloses it. End blocks are always part of another block called the associated block. End blocks must appear in the associated
+block after the last executable statement and before the END statement. The other type of end block is the FINALLY block that is discussed in later topics.
+
+The CATCH statement defines the start of an end
+block that only executes if a condition is raised in its associated block, and the type
+of condition raised is the type specified in the CATCH
+statement (or a subtype of that type). For example:
+
+In this example:
+
+ The THROW directive tells the AVM to propagate any
+  unhandled errors to the procedure (main) block, since it
+  is the enclosing block of the DO TRANSACTION block.
+  Notice there is a CATCH block waiting to handle any
+  Progress.Lang.AppError object that may be
+  raised from the RUN statement. If a Progress.Lang.AppError object is raised, the CATCH block handles the error and it is not passed to
+  the procedure block.
+ When running the code, if the FIND statement fails, and
+  there is no error handler present for this error type, it raises a Progress.Lang.SysError. Since Progress.Lang.SysError is not handled, the AVM throws the error up the
+  call stack to the procedure block, due to the UNDO, THROW directive
+  of the TRANSACTION block. The AVM finds a compatible CATCH block on the procedure block and then executes
+  the code in the CATCH block.
+ If you delete the CATCH block on the procedure
+  block and run the example code, the AVM propagates the Progress.Lang.SysError object to the main block as before. Since you
+  no longer have an appropriate error handler in the main block, the AVM now executes
+  the default error handling behavior, which is to display the system error message to
+  the default output device.
+
+The CATCH block executes once for each iteration of its associated block
+that raises a compatible error. A block can have multiple CATCH blocks,
+and all must come at the end of the associated block.
+
+There can only be one CATCH block for each
+specific condition type in a block. A CATCH block also
+handles objects for its subtypes, so it is possible there can be more than one CATCH block that is compatible with a particular condition.
+In this case, the AVM executes the first CATCH block it
+encounters that is compatible. For this reason, CATCH
+blocks should be arranged from the most specific type to the most general. For example,
+if you had different error handling code for Progress.Lang.SysError objects and Progress.Lang.SoapFaultError objects, put the CATCH block for SoapFaultError objects
+first. Otherwise, since SoapFaultError objects are a
+subtype of SysError, a CATCH block for SysError that appears
+first would handle the SoapFaultError object.
+
+
+ABL Error Handling - Introduction to Error and Condition Handling
+Run-time occurrences that interrupt the usual flow of a software
+application are called conditions, errors, or exceptions. Condition handling, error handling, and
+exception handling are industry terms, sometimes used interchangeably,
+for programming designed to respond to those run-time interruptions. Since most
+condition handling in ABL involves the ERROR condition,
+error handling has become a common synonym for condition handling and is used frequently in the OpenEdge
+documentation set.
+
+PrecedenceofCATCHblocks
+
+ABL Error Handling - Precedence of CATCH blocks
+In general, the AVM performs error handling using this precedence, from
+highest to lowest. The AVM only abides by one of these when a condition is raised:
+
+ Statement NO-ERROR option
+ CATCH block
+ Block’s ON phrase (explicit or
+  implicit)
+
+Using NO-ERROR on a statement prevents a CATCH block
+from running if the statement raises a condition.
+
+Otherwise a CATCH block takes precedence over any flow of control directive on
+the block, for example, LEAVE or THROW. See sections
+on Default Condition Handling and Block Flow of Control and Condition Directives, for more
+information on block condition directives.
+
+If there are CATCH blocks, but none of them
+are compatible with the type of condition that occurs, then the ON phrase for the block takes effect. This could be an explicit or
+implicit (default) phrase for the block type, such as ON
+ERROR or ON STOP. It can be useful to have
+both an explicit ON phrase for the associated block and
+a CATCH on the same associated block. You might want to
+CATCH certain error types and handle them directly,
+and have all other condition types handled by the ON
+phrase of the associated block.
+
+RETURNERROR
+
+ABL Error Handling - RETURN ERROR
+The RETURN ERROR statement is another way of raising an
+ERROR condition. The full syntax of the RETURN
+statement is shown below, though here we are only discussing the RETURN
+ERROR options.
+
+You can use the ERROR option in a procedure, database trigger block,
+class-based method, constructor, or property accessor. However, you cannot use it in a
+user-interface trigger block or destructor to raise ERROR outside of
+that block. This results in a compiler error. More information about conditions in
+destructors are discussed in Throw a condition out of a destructor. You also cannot use
+RETURN ERROR in a user-defined function to raise
+ERROR outside of that block. This is explained in more detail in
+Raise ERROR to the caller of a user-defined function.
+
+Note that if an error is returned from any procedure, method, or user-defined
+function, the values of any OUTPUT or INPUT-OUTPUT parameters are not returned to the
+caller.
+
+Syntax
+
+error-return-value: A character expression.
+
+error-object-expression: Any expression that results in an instance of an error or stop object.
+
+Aside from being a stand-alone statement, the RETURN phrase, with
+the same options, is also available on the following language elements:
+
+ ON ENDKEY phrase
+ ON ERROR phrase
+ ON QUIT phrase
+ ON STOP phrase
+ UNDO statement
+
+Regardless of the options, when RETURN
+ERROR executes, execution returns to the caller of the current
+procedure, method, constructor, or property accessor, and ERROR is raised in the caller. If it occurs in a database trigger,
+ERROR is raised on the statement that caused
+the database event. Because the AVM returns before raising error, the block
+containing the RETURN statement or phrase is not
+undone. The behavior in the caller is then dictated by that block’s error-handling
+capabilities (error directive or CATCH block).
+
+Note: The remainder of this section does not apply to user-defined functions.
+
+The AVM does the following when the RETURN ERROR statement
+executes:
+
+ If neither an error-return-value nor an
+  error-object-expression is supplied, the AVM creates an
+  instance of Progress.Lang.AppError with no error message set
+  and the ReturnValue property set to the empty string. The value
+  for the RETURN-VALUE built-in function is also set to the empty
+  string.
+ If an error-return-value expression is supplied, the AVM
+  creates the AppError object and sets its
+  ReturnValue property. No error message is set in the
+  object. It also sets the value for the RETURN-VALUE built-in
+  function.
+ If an instance of an error object is supplied, the AVM does not create a new
+  instance.
+ In all cases, the AVM returns and behaves as if this object was thrown on
+  the invoking statement.
+
+In the caller, if NO-ERROR is used on the invoking statement, any
+error messages in the object are transferred to the ERROR-STATUS
+system handle, ERROR-STATUS:ERROR is set to TRUE,
+and the error object instance is discarded. Any custom information in the error
+object is lost.
+
+Otherwise (if NO-ERROR is not used on the invoking
+statement) the error object is handled in the usual way. If there is a relevant
+CATCH block, the error is caught. Otherwise the block’s error
+directive takes effect. If default error handling is in place, any error message is
+displayed to the output device. But if there is no error message stored in the
+object, no display is made.
+
+Example
+
+The following example shows how RETURN ERROR is used to
+return a custom AppError to a caller using
+NO-ERROR:
+
+RaiseConditions
+
+ABL Error Handling - Raise Conditions
+When a system condition is encountered during program execution, the AVM
+automatically raises an ERROR or STOP condition. However, there are also programmatic ways to raise a
+condition. This set of topics discuss ABL constructs for raising conditions
+programmatically.
+
+ Raise errors with UNDO, THROW
+ RETURN ERROR
+ Raise ERROR to the caller of a user-defined function
+ Throw a condition out of a destructor
+ Raise the QUIT condition
+ Raise the STOP condition
+ Raise a timed STOP condition
+ Throw error and stop objects from an application server to an ABL client
+
+
+ABL Error Handling - Raise ERROR to the caller of a user-defined function
+The user-defined function, defined by the FUNCTION statement, returns a value of a specific data type as its primary
+function. The RETURN statement is used in the function
+body to specify what value to return to the caller. The RETURN
+ERROR statement is not used in the same way as it is in other blocks since
+it does not raise ERROR in the caller. Instead, it sets
+the target variable of the function to the Unknown value (?). Therefore, you can perform error checking on a function call by
+checking for the Unknown value (?). This technique only
+works if the target variable has a value other than the Unknown value (?) before the function is called.
+
+The following code demonstrates this behavior:
+
+If you specify a string (RETURN ERROR), the string is not seen as a RETURN-VALUE, but as the value being returned from the function.
+Therefore, if the function is defined to return a type other than CHARACTER, you get a
+compiler error (or a runtime error if the expression type is indeterminate at compile
+time). If the function is defined to return a CHARACTER, the code runs, but RETURN-VALUE is not set. The specified string is lost.
+
+Structured error handling provides a more consistent and robust way to raise
+ERROR from user-defined functions using the UNDO,
+THROW statement rather than RETURN ERROR. There are two
+ways to do this:
+
+ Syntactically, you cannot use an ON ERROR phrase on a
+  FUNCTION definition. Therefore, use the ROUTINE-LEVEL
+  ON ERROR UNDO, THROW (or BLOCK-LEVEL ON ERROR UNDO,
+  THROW) statement to set that directive on the function. Then any
+  unexpected error, or explicitly thrown application errors, can be thrown back to the
+  caller. Just be aware that this affects all routines or blocks in the file.
+ Add a CATCH block to the function. With a
+  CATCH block, any error that is caught can be thrown out of the
+  function using the UNDO, THROW statement from
+  within the CATCH block. If you only want to throw
+  application errors back to the caller but handle system errors locally, or vice
+  versa, you can use multiple CATCH blocks to
+  accomplish this. Using multiple CATCH blocks is shown in the
+  example below. To learn more, see CATCH Blocks.
+
+RaiseatimedSTOPcondition
+
+ABL Error Handling - Raise a timed STOP condition
+The STOP-AFTER phrase specifies a
+time-out value for a DO, FOR,
+or REPEAT block. This is the syntax in the context of a
+DO block:
+
+Syntax
+
+The integer expression specifies the number of
+seconds each iteration of a block has until a time-out occurs. If a time-out occurs, the AVM
+raises the STOP condition.
+
+This STOP condition can be handled like
+other STOP conditions (for example, by using an ON STOP phrase), or it can be specifically handled by using a
+CATCH block for a Progress.Lang.StopAfter object. Specifically handling the condition is the
+recommended approach since it is the only way to know that the STOP condition was indeed raised by the STOP-AFTER and not by some other unexpected circumstance occurring within the
+block.
+
+For more information on using this feature, see the STOP-AFTER phrase on the DO, FOR, or REPEAT statements in the
+ABL Reference.
+
+RaiseerrorswithUNDOCOMMATHROW
+
+ABL Error Handling - Raise errors with UNDO, THROW
+During the execution flow, you may determine that there is an invalid
+condition (for example, when validating input) and want to communicate that to other
+parts of the program or to the user. To do this, you create an application error
+object and raise the ERROR condition by using the
+UNDO, THROW statement.
+
+In addition, you can provide local CATCH blocks that provide handling for specific error numbers and
+throw any other condition to an outer or calling block to be handled by more generic
+error-handling code. The same UNDO, THROW statement
+can be used in a CATCH block to accomplish
+this.
+
+Syntax
+
+error-object-expression: Any expression that results in an instance of an error or
+    stop object.
+
+When this statement is executed, it undoes the current block (the
+innermost block with error-handling capabilities) and raises ERROR or STOP on the statement.
+ERROR is raised if it is an error object and
+STOP is raised for any of the stop objects
+(which includes Progress.Lang.StopError). It is
+then up to the block directives to determine how the error is handled, as with any
+other condition.
+
+Examples
+
+In each of the following examples, ERROR is raised on the UNDO, THROW
+statement. If there are any updates in the block that require undoing, that is
+performed, though in these examples there are not. The comment in each code example
+describes what happens. Assume the current output device is the screen:
+
+Example 1
+
+This example demonstrates the use of UNDO, THROW
+within a block. Note that this is not the same as using the ON ERROR UNDO, THROW directive on that block. With the UNDO, THROW statement, the condition is simply raised
+on the current statement.
+
+Example 2
+
+With the ON ERROR UNDO, THROW
+directive, the condition, which was already raised within the context of that block,
+is thrown to the outer block (or caller if there is no outer block).
+
+If you use the DEBUG-ALERT feature (SESSION:DEBUG-ALERT = yes, or startup parameter -debugalert) for each of the above two examples, the
+difference is clearer. For the first example, if you hit the Help button on the alert box when the error message
+is displayed, it shows line 3 (the UNDO, THROW
+statement). In the second example, it shows line 5 (the END statement).
+
+Example 3
+
+This example demonstrates what happens when the UNDO, THROW statement occurs within a CATCH block. Here the condition is raised and thrown to
+the outer block of the associated block (or the caller if there is no outer block).
+This happens because CATCH blocks have the UNDO, THROW flow-of-control directive by default.
+
+RaisetheQUITcondition
+
+ABL Error Handling - Raise the QUIT condition
+Syntax
+
+The QUIT statement raises the QUIT condition.
+
+When the QUIT condition occurs, the AVM performs these steps by
+default:
+Commits the current transaction.
+Exits the ABL session.
+For a client, if the application was started from the Procedure Editor
+   or Progress Developer Studio for OpenEdge, the AVM returns to that tool; otherwise it
+   returns to the operating system. If running in an application server, the AVM returns to
+   the client session that called it.
+
+If there is an ON QUIT phrase on the
+current block, that directive overrides the default behavior.
+
+RaisetheSTOPcondition
+
+ABL Error Handling - Raise the STOP condition
+The STOP statement allows you to raise the
+STOP condition.
+
+Syntax
+
+The STOP condition can be handled by the
+following constructs, in this order of precedence:
+
+ An appropriate CATCH block
+ An ON STOP phrase
+ Default stop handling
+
+
+ABL Error Handling - Throw a condition out of a destructor
+It is not possible to throw either an ERROR or
+STOP condition out of a class destructor. The
+destructor of a class can run at unexpected times, at the end of any statement, or at an
+END block where variables go out of scope.
+Therefore, you would not be able to effectively write code to handle any condition that
+was thrown out of the destructor block. Because of this, the AVM forces the condition to
+be handled within the block itself. It can be handled in all the usual ways, such as
+using an ON phrase (implicit or explicit) or by using a
+CATCH block.
+
+Additionally, note that for destructors:
+
+ Using ROUTINE-LEVEL ON ERROR UNDO, THROW or BLOCK-LEVEL ON
+  ERROR UNDO, THROW, does not affect the destructor block of a
+  class.
+ Using the UNDO, THROW statement in the CATCH or
+  FINALLY block of a destructor results in a compiler error
+  because UNDO, THROW, in this context, would throw the condition out
+  of the destructor block, which is not allowed. You can, however, use UNDO,
+  THROW in the body of the destructor itself. This raises the condition
+  within the context of the block and it can be handled either by default error
+  handling or by a local CATCH block.
+ Using RETURN ERROR in the body of a destructor generates a compiler
+  error.
+• Unhandled STOP conditions normally propagate
+  up by default. However this does not occur if the STOP condition is
+  initiated within the destructor block. Instead, any error message is displayed to
+  the current output device and the condition is cleared.
+
+
+ABL Error Handling - UNDO scope and relationship to a CATCH block
+Because the CATCH block only executes when ERROR or
+STOP is raised in the associated block, any transaction within the
+associated block is already undone. In other words, changes made within the associated
+block to persistent data, undo variables, and undo temp-table fields have been
+discarded. In addition, buffers scoped to the associated block of the
+CATCH block are not available when the CATCH block
+executes. This is because either the buffer was undone and released, or committed and
+released. If a buffer referenced in a CATCH block is referenced outside
+of the associated block, then the scope of that buffer is the smallest enclosing block
+outside of the associated block that encompasses all references to the buffer.
+Therefore, these buffers are available to the CATCH block.
+
+The CATCH block itself is an undoable
+block with implicit ON ERROR UNDO, THROW error
+handling. You cannot explicitly override the ON ERROR
+directive for a CATCH block.
+
+A statement that raises ERROR or STOP within a CATCH block
+causes the following to occur, unless the condition is handled within the block:
+UNDO the CATCH block if it contains a transaction.
+LEAVE the associated block.
+THROW the condition to the block enclosing the
+   associated block, or to the caller if there is no outer block.
+
+The following example demonstrates these availability rules:

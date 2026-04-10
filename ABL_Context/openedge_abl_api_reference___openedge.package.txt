@@ -1,0 +1,9 @@
+OpenEdge.package
+
+OpenEdge ABL API Reference - OpenEdge.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:21

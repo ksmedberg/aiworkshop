@@ -1,0 +1,71 @@
+TRANSACTION-MODE AUTOMATIC statement
+
+(PAS for OE only)
+
+Causes the procedure file that executes this statement to become an
+automatic transaction initiating procedure. This transaction initiating procedure allows you
+to control an automatic transaction in the context of an application server session.
+
+Note: Does not apply to SpeedScript programming.
+
+Syntax
+
+CHAINED: Tells the application server session to automatically create a new
+    transaction every time the current transaction is either committed or rolled back.
+
+Notes
+
+ This statement must appear before any other executable statement in a
+  top-level persistent procedure (transaction initiating procedure) running on the
+  application server.
+ You can control an automatic transaction by accessing the attributes and
+  methods of the transaction object. You can access these attributes and methods on the
+  transaction handle returned by the TRANSACTION attribute of any application server
+  procedure handle.
+ An automatic transaction remains open in an application server session until:
+• The current request service returns control to the client after an
+    application server procedure invokes the transaction handle SET-COMMIT() method or SET-ROLLBACK() method.
+• The transaction initiating procedure is deleted from the
+    session.
+ If you specify the CHAINED option, a transaction is always active in the
+  application server session until either the transaction initiating procedure is deleted or
+  the application server session terminates.
+ If you do not specify the CHAINED option and the transaction
+  initiating procedure is still active, after the current transaction
+  terminates, a client application can start a new transaction by
+  directly calling any remote internal procedure of the transaction
+  initiating procedure. When so executed, this remote internal procedure
+  (which can otherwise be empty) creates a new transaction that you
+  can control using the transaction handle.
+ As long as an automatic transaction is open, you can execute any
+  internal procedure of the current transaction initiating procedure from any other
+  procedure running on the application server. However, if no automatic transaction is open,
+  only a client application can execute such an internal procedure as a remote procedure
+  call, which then opens an automatic transaction. If an application server procedure tries
+  to execute such an internal procedure with no automatic transaction open, the procedure
+  call returns an error.
+• If a transaction is open when you delete the transaction initiating procedure,
+  the transaction is committed or rolled back according to the value
+  of the transaction handle DEFAULT-COMMIT attribute.
+
+See also
+
+Transaction object handle
+
+
+
+
+TRANSACTION function
+
+Returns a LOGICAL value that indicates whether
+a transaction is currently active.
+
+Syntax
+
+See also
+
+Transaction object handle
+
+
+
+

@@ -1,0 +1,61 @@
+ABL Syntax Reference
+
+This section contains reference entries that describe
+the syntax of ABL. They begin with descriptions of the language
+punctuation and special characters. The remaining entries contain
+descriptions of the ABL statements, functions, phrases, preprocessor
+directives, and miscellaneous other language elements.
+
+You can consider a language element as supported for all interfaces,
+on all operating systems, and for SpeedScript unless otherwise indicated
+in each language element description. These descriptions refer to
+both compile-time and run-time behavior, features that the language
+generally supports and determines at compile time and actions directed
+by using these features at run time. When describing compile-time
+features or actions, this section references ABL or the ABL compiler.
+When describing ABL-directed actions taken at run time, this section
+references the ABL Virtual Machine (AVM).
+
+
+
+
+Introduction to the ABL Reference
+
+This document describes ABL (Advanced Business Language), which is the OpenEdge
+programming language for building business applications.
+
+It contains the following sections:
+
+ ABL Syntax Reference
+ Widget Reference
+ Handle Reference
+ Handle Attributes and Methods Reference
+ Handle-based Object Events Reference
+ Class, Interface, and Enumeration Reference
+ Class Properties and Methods Reference
+ Class Events Reference
+• Keyword Index
+
+
+
+
+Keyword Index
+
+The following table lists all keywords and built-in object names in ABL.
+The columns are as follows:
+
+ Keyword — Specifies the full keyword or built-in object
+  name.
+ Rsrv — Indicates whether a keyword is reserved.
+• Minimum abbreviation — Specifies the shortest abbreviation
+  ABL recognizes for the keyword or name. If no abbreviation is specified, the keyword
+  cannot be abbreviated.
+
+  Note: As a best practice avoid the use of abbreviated keywords. You
+  can use the COMPILE OPTIONS
+  require-full-keywords option to enforce
+  this.
+
+
+
+

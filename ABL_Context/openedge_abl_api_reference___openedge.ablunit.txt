@@ -1,0 +1,364 @@
+OpenEdge.ABLUnit.Model.File
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.File
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.IRunnableEntity
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.ABLUnit.Model.package
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:21# OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:21
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.TestCase
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.TestClass
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.TestEntity
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.TestMethod
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.TestProcedure
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.TestRootModel
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Model.TestSuite
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.AnnotationInfo
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.AnnotationUtil
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.ClassAnnotationInfo
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.ClassInfo
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.ITestInfoList
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:21
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.ProcedureAnnotationInfo
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.TestAnnotationInfo
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.TestInfo
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.TestInfoList
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Reflection.TypeInfo
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Results.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:21
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Results.TestResultEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Results.TestResultList
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Results.TestTestResult
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Results.TestTypeResult
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Runner.ABLRunner
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Runner.ExpectedExceptionError
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Runner.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:22
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Runner.TestConfig
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Writer.IResultsWriter
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Writer.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:22
+
+
+OpenEdge ABL API Reference - OpenEdge.ABLUnit.Writer.ResultsXmlWriter
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11

@@ -1,0 +1,1924 @@
+OpenEdge.Net.FileTypeRegistry
+
+OpenEdge ABL API Reference - OpenEdge.Net.FileTypeRegistry
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.FormEncoder
+
+OpenEdge ABL API Reference - OpenEdge.Net.FormEncoder
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.ISupportEncoding
+
+OpenEdge ABL API Reference - OpenEdge.Net.ISupportEncoding
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ISupportMultipartEntity
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ISupportTransferEncoding
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.MediaLinkEntity
+
+OpenEdge ABL API Reference - OpenEdge.Net.MediaLinkEntity
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.MessagePart
+
+OpenEdge ABL API Reference - OpenEdge.Net.MessagePart
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.MimeTypeHelper
+
+OpenEdge ABL API Reference - OpenEdge.Net.MimeTypeHelper
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.MultipartEntity
+
+OpenEdge ABL API Reference - OpenEdge.Net.MultipartEntity
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.package
+
+OpenEdge ABL API Reference - OpenEdge.Net.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:28
+
+OpenEdge.Net.PercentEncoder
+
+OpenEdge ABL API Reference - OpenEdge.Net.PercentEncoder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.URI
+
+OpenEdge ABL API Reference - OpenEdge.Net.URI
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.UriEncoder
+
+OpenEdge ABL API Reference - OpenEdge.Net.UriEncoder
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.UriEncodingTypeEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.UriSchemeEnum
+
+OpenEdge ABL API Reference - OpenEdge.Net.UriSchemeEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.AuthenticatedRequest
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.AuthenticationMethodEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.AuthenticationRequestEventArgs
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.AuthorizationHeader
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.AuthorizationHeaderBuilder
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.BuilderRegistry
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ClientBuilder
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ClientOptions
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ConfigBuilder
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ContentDispositionHeader
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ContentDispositionHeaderBuilder
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ContentTypeHeader
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ContentTypeHeaderBuilder
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.Cookie
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Cookie
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.CookieCollection
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.CookieJar
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.CookieJar
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.CookieJarBuilder
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.CookieJarDecorator
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.Credentials
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Credentials
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.DefaultCookieJarBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.DefaultHeaderBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.DefaultHttpClientBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.DefaultRequestBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.DefaultResponseBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.HttpClient
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpClient
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpClientDecorator
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.HttpHeader
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpHeader
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpHeaderBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpHeaderCollection
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.HttpMessage
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpMessage
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.HttpRequest
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpRequest
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpRequestDecorator
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpRequestError
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.HttpResponse
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpResponse
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.HttpResponseDecorator
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.IAuthenticatedRequest
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.ICookieJar
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ICookieJar
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.IHttpClient
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.IHttpClient
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.IHttpClientLibrary
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.IHttpMessage
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.IHttpMessage
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.IHttpMessageWriter
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.IHttpRequest
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.IHttpRequest
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.IHttpResponse
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ISecureConnectionAuthenticatedRequest
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ISupportCookies
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ISupportProxy
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ITraceableRequest
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.MethodEnum
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.MethodEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.NullHeader
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.NullHeader
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.package
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:28
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ProxyHttpClient
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ProxyHttpRequest
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.RequestBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.ResponseBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Net.HTTP.SameSiteEnum
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.SameSiteEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.SemicolonParamHeaderBuilder
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.StatefulHttpClient
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.StatusCodeEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.StatusCodeHelper
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.TlsConnectionAuthenticatedRequest
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.TraceableRequest
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.TransferEncodingEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.ClientSocket
+
+Method Detail
+
+Constructor Detail
+
+Event Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.ClientSocketConnectionParameters
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.CredentialsEventArgs
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.ISocketConnectionCredentialsHandler
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.SocketReadEventArgs
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.TlsClientAuthenticationError
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.ServerConnection.TlsClientCredentials
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.IFilterEvents
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Lib.ClientLibraryBuilder
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.ExchangeData
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.IOutputConfig
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.LocalOutputConfig
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.MessageTypeEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.OutputTypeEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.PolicyTypeEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.TraceConfig
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.TraceConfigLoader
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.TracePolicyEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.AuthenticationRequestFilter
+
+Method Detail
+
+Constructor Detail
+
+Event Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.AuthFilterEventHandlerWrapper
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.BasicAuthenticationFilter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.DigestAuthenticationFilter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.IAuthFilterEventHandler
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.NoAuthenticationFilter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26# OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Auth.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Header.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Header.SetCookieSetHeaderFilter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Header.TransferEncodingSetHeaderFilter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.BinaryBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.BinaryEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.ClientSocketResponseWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.ConnectRequestFilter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.DefaultRequestFilter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.FormDataBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.FormDataEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.HtmlBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.JsonBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.JsonEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.MessageWriter
+
+Method Detail
+
+Constructor Detail
+
+Event Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.MessageWriterErrorEventArgs
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.MultipartBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.MultipartEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.MultipartFormBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.MultipartFormEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.MultipartFormSimpleEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.RawMessage
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.StringBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.StringEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.XmlBodyWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Payload.XmlEntityWriter
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Status.AuthorizationStatusFilter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Status.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Status.RedirectStatusFilter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.AuthenticationRequestWriterBuilder
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.BodyWriterBuilder
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.BodyWriterRegistry
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.DefaultMessageWriterBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.EntityWriterBuilder
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.EntityWriterRegistry
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.MessageWriterBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.RequestWriterBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.SetHeaderMessageWriterBuilder
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.StatusCodeWriterBuilder
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Filter.Writer.VoidMessageWriterBuilder
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Lib.ABLSockets.ABLSocketLibrary
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Lib.ABLSockets.ABLSocketLibraryBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Lib.ABLSockets.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26# OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Lib.ABLSockets.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Formatter.HarFormatter
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Formatter.ITraceFormatter
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Formatter.JsonFormatter
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Formatter.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.BodyDataRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.BodyFilterRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.BodyRule
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.CookieRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.HeaderRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.ITraceDataRule
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.ITraceFilterRule
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.ITraceRule
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.QueryStringDataRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.QueryStringFilterRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.StatusCodeRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.TraceRule
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Rule.UrlRule
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Writer.FileWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Writer.ITraceWriter
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Net.HTTP.Trace.Writer.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:26

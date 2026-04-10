@@ -1,0 +1,499 @@
+
+OpenEdge ABL API Reference - OpenEdge.Logging.AnonymizedTokenFormatBuilder
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.ConfigFileLoggerBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.ILogWriter
+
+OpenEdge ABL API Reference - OpenEdge.Logging.ILogWriter
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.ISupportLogging
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.JsonConfigLoggerBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.LogEvent
+
+OpenEdge ABL API Reference - OpenEdge.Logging.LogEvent
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.LogFilterBuilderRegistry
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.Logger
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Logger
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.LoggerBuilder
+
+OpenEdge ABL API Reference - OpenEdge.Logging.LoggerBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.LoggerFilterRegistry
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.LogLevelEnum
+
+OpenEdge ABL API Reference - OpenEdge.Logging.LogLevelEnum
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.LogMessage
+
+OpenEdge ABL API Reference - OpenEdge.Logging.LogMessage
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.MDC
+
+OpenEdge ABL API Reference - OpenEdge.Logging.MDC
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.package
+
+OpenEdge ABL API Reference - OpenEdge.Logging.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:27
+
+OpenEdge.Logging.TokenResolver
+
+OpenEdge ABL API Reference - OpenEdge.Logging.TokenResolver
+
+Method Detail
+
+Event Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.TokenResolverEventArgs
+
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+OpenEdge.Logging.VoidLogger
+
+OpenEdge ABL API Reference - OpenEdge.Logging.VoidLogger
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Filter.ConfigPropertyFilterBuilder
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Filter.ILoggerFilter
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Filter.LogFilterBuilder
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Filter.LoggerFilterList
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Filter.LoggerFilterNode
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Filter.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:27
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.ABLSubstituteFormat
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.AnonymizedTokenFormat
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.ErrorFormat
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.FullTextFormat
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.ISupportFormatting
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.LogManagerFormat
+
+Method Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.LogMessageTokenResolver
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.MDCTokenFormat
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:27
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.ResolvedTokenFormat
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.StackWriterFormat
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Format.TokenContextFormat
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.FileLogWriterBuilder
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.IFileWriter
+
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.JsonLogWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.JsonLogWriterBuilder
+
+Method Detail
+
+Constructor Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.LogManagerWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.MessageStatementWriter
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.NamedFileWriter
+
+Method Detail
+
+Constructor Detail
+
+Property Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.package
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11
+
+01.14.2026 15:59:27
+
+
+OpenEdge ABL API Reference - OpenEdge.Logging.Writer.VoidWriter
+
+
+Method Detail
+
+Copyright © 2026 Progress Software Corporation. All rights Reserved.
+
+Progress® OpenEdge® Release 12.8.11

@@ -1,0 +1,98 @@
+Progress.Collections.IComparable<T>interface
+
+Class, Interface, and Enumeration Reference - Progress.Collections.IComparable interface
+The Progress.Collections.IComparable interface imposes an ordering on the objects of the class that implements it. Objects that implement this interface can be used as elements in a SortedSet, without the need to specify a custom comparer. The interface provides a method that is used to determine the order of a given element in relation to another element, for the purpose of sorting the elements. By implementing this interface and conforming to its contract, the object provides the natural sort order of the elements in the collection, that is, the natural ordering of the class.
+
+Public Properties
+
+The interface has no public properties.
+
+Public Methods
+
+Example
+
+The following is an example of a class named Person, where the
+natural order is defined by the value of a property called
+Name:
+
+Notes
+
+ The following rules apply to the returned value of
+  CompareTo().
+• If the returned value is less than 0 (zero), then the current object
+    sorts before the object passed in.
+• If the returned value equals 0 (zero), then the current object occupies
+    the same position in the sort order.
+• If the returned value is greater than 0 (zero), then the current object
+    sorts after the object passed in.
+ The returned value itself has no meaning outside of being greater than, equal
+  to, or less than zero. That is, if the returned value is 1, or 10, or 10000,
+  they all mean the same thing as per the rules above.
+ The class implementing the interface may implement additional restrictions, such
+  as raising an error if two objects are not comparable.
+ The CompareTo() method should not return the unknown value
+  (?). The SortedSet collection
+  implementation raises an error if the CompareTo() method
+  returns the unknown value (?). It also raises an error if the
+  CompareTo() method raises an error.
+• In order to implement this interface, the user-defined class that wants to be
+  “comparable” needs to define the type argument as a specific class type (usually
+  the same type as the class).
+
+See also
+
+ Generic type reference, Progress.Collections.IComparer interface
+
+
+
+
+Progress.Collections.IComparer<T>interface
+
+Class, Interface, and Enumeration Reference - Progress.Collections.IComparer interface
+The Progress.Collections.IComparer interface provides a method to support the comparison of objects for equality.
+
+Public Properties
+
+The interface has no public properties.
+
+Public Methods
+
+Notes
+
+ The following rules apply when comparing the objects:
+• If the returned value is less than 0 (zero), then the first object sorts
+    before the second object.
+• If the returned value equals 0 (zero), then both objects occupy the same
+    position in the sort order.
+• If the returned value is greater than 0 (zero), then the first object
+    sorts after the second object.
+ For a SortedSet collection, an error is raised if the
+  Compare() method returns the unknown value
+  (?) or raises an exception or error.
+• In order to implement this interface, the comparer user-defined class needs to
+  define the type argument as a specific class type, making it a comparer object
+  for a specific type (or types that inherit that type).
+
+Example
+
+Assume there is a class named Person that defines default ordering
+for the class:
+
+This default ordering can be bypassed by using a custom comparer
+implementation and defining the ordering rules via the Compare() method. The following example defines a PersonComparer class that implements IComparer, which can be used to override the
+default ordering defined in the Person class above.
+Note that the Person class does not need to
+implement IComparable, but even if it
+does, the order is still defined by the comparer class below.
+
+In order to use the custom comparer, you would instantiate the
+SortedSet class, passing an instance of the comparer class. For
+example:
+
+See also
+
+ Generic type reference, Progress.Collections.IComparable interface
+
+
+
+

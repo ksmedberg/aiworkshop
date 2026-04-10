@@ -1,0 +1,138 @@
+Define event handlers
+
+To use class events in your application, you must create
+one or more event handlers. A class event handler can be any class
+method or internal procedure whose signature is compatible with
+the signature defined for a given ABL or.NET class event. However,
+verification of the event handler signature occurs at a different
+point for method event handlers (at handler subscription compile
+time) than for internal procedure event handlers (at event publish
+run time). Note that all class event signatures include a VOID return
+type; therefore, any event handler method must also have a VOID
+return type.
+
+For ABL class events, including ABL class events that implement
+inherited.NET abstract events, if you raise ERROR or throw an error
+object, the error is raised on the statement that executes the Publish() event method on the event as if you had called the event handler
+directly. For information on errors raised in handlers for.NET
+events, see Define handlers for.NET events.
+
+
+
+
+Define handlers for .NET events
+
+Class Events Reference - Define handlers for.NET events
+If you use a.NET delegate to define an ABL class event,
+or if you are defining an ABL method or internal procedure as a
+handler for a.NET event, you must define your event handler signature
+to match the delegate specified for the event. (In.NET, you implement
+event handlers by defining derivations of the specified delegate
+type.) For both ABL class events and.NET events, ABL only supports
+delegates whose signatures conform to the Microsoft.NET convention
+for event handler signatures. This signature convention provides
+for a VOID return type and two INPUT parameters, where the first
+parameter is a reference to a.NET System.Object that
+published the event, and the second parameter is a reference to
+a.NET System.EventArgs (or a derived class) that
+provides event arguments as public members of the class.
+
+Syntax
+
+The
+signature for any ABL event handler defined for a.NET delegate
+must conform to this general syntax:
+
+EventHandlerName: The name of your class-based method or internal procedure.
+
+sender: Object reference to the.NET class instance that published the event.
+
+args: Object reference to an event arguments class that contains public properties
+    that provide arguments for the event. Note that for a.NET event, args references
+    an object that is created by.NET and added to the ABL session object
+    chain when the event handler executes. Like any other locally scoped
+    object reference, if you do not save the value before the event
+    handler terminates, ABL automatically garbage collects this object
+    at some point after the event handler returns.
+
+EventArgsClass: The class type name of the event arguments class. This is always System.EventArgs or
+    one of its derived classes. Thus, System.EventArgs is
+    the base class for all event arguments classes that an event handler
+    can receive through this INPUT parameter.
+
+To
+identify the exact handler signature for a given.NET delegate,
+you must look up the delegate in the appropriate class library documentation
+or use the Class Browser of Progress Developer Studio for OpenEdge
+to inspect the class. For.NET events supported on the built-in.NET classes provided by OpenEdge and described in the Class, Interface, and Enumeration Reference, each event reference entry described further on
+in this section indicates the delegate type associated with the
+event along with its matching event handler signature. Otherwise,
+to locate the delegate in.NET class library documentation, find
+the event you want to handle in the documentation for the class
+that publishes the event. The event definition includes a reference
+to its delegate type. The documentation for the specified delegate
+shows the.NET signature you must use for your event handler.
+
+If
+you do not trap and handle an error raised within a handler for
+a.NET event, whether it is raised as the ERROR condition or thrown
+as an error object, the AVM does not throw an Exception back
+to.NET, but displays an error message on the default output device
+and continues processing as if no error had occurred. So, unlike
+handlers for ABL class events, if you subscribe multiple handlers
+for a.NET event, all the handlers execute regardless if one or
+more of them raises an error.
+
+
+
+
+Define multiple handlers for an event
+
+If you need to subscribe more than one event handler
+for an ABL class event, when you publish the event, any OUTPUT or INPUT-OUTPUT
+parameter you define returns the value set by the final event handler
+to execute. In addition, any INPUT-OUTPUT parameter you define passes
+the value set by one event handler as input to the next event handler
+to execute. A similar effect occurs if you pass a handle or object
+reference as an INPUT parameter and your event handlers set the
+value of a public data member on the handle or class-based object.
+The returned value of the input object data element is the value
+set by the final handler to execute for the event. In addition,
+the order of execution for multiple handlers subscribed to a single event
+is not guaranteed, making it difficult or impossible to know exactly
+how parameter values returned from the Publish() method
+have been set. So, if you use more than one handler for a given
+event, you need to use caution in defining and using the parameters
+for that event.
+
+Also, if you raise ERROR or throw an error object from any one
+of the handlers for the ABL class event, any event handler that
+has not already run when the error is raised does not run. Therefore,
+if you want all handlers to run for an event, regardless of error
+conditions, you must resolve all conditions within each handler
+and allow the handler to return successfully.
+
+
+
+
+Events and event methods reference
+
+The following reference entries document both the events of built-in ABL
+classes and the built-in event methods for working with all class events. The ABL built-in
+classes also include a set of.NET objects defined by OpenEdge. For more information on all
+ABL built-in classes, see the Class, Interface, and Enumeration Reference. For information on class events defined for all other.NET objects, see
+the appropriate documentation..
+
+The reference entries for events that follow appear in alphabetical
+order by event name. Each reference entry includes the syntax required
+to define the signature for the event handler as a class-based method,
+with EventHandlerName used to indicate a name
+that you specify for the event handler. If you define the event
+handler as an internal procedure, define the same number of parameters
+in order by parameter mode and data type. If the event is a.NET
+event, the entry description also lists the name of the.NET delegate
+type defined for the event.
+
+
+
+

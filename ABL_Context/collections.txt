@@ -1,0 +1,150 @@
+Count property (Collections)
+
+Returns the number of elements contained in the collection.
+
+Note for HashMap collections, this is the number of
+key-value pairs.
+
+Data type: INTEGER
+
+Access: PUBLIC Read-only
+
+Applies to: Progress.Collections.List class, Progress.Collections.SortedSet class, Progress.Collections.HashMap class, Progress.Collections.KeySet class
+
+Example
+
+For a code example showing Count for a list,
+see Progress.Collections.List class.
+
+For an code example showing Count
+for a sorted set, see Progress.Collections.SortedSet class.
+
+See also
+
+ Generic type reference
+
+
+
+
+FileListId property
+
+The FileListId property identifies
+the FileList VST. This VST temp-table has a single
+record which contains data about temp-table database. You can pass
+the FileListId property to the GetVSTHandle() method
+to return the handle to the FileList VST. This
+property is read-only.
+
+Data type: INTEGER
+
+Access: PUBLIC
+STATIC
+
+Applies to:
+Progress.Database.VSTTableId class
+
+
+
+
+First property (Collections)
+
+Returns the first (lowest) element of the set collection, according to the
+comparer implementation (default or custom). If the collection is empty, returns the
+Unknown value (?).
+
+Data type: T
+
+Access: PUBLIC Read-only
+
+Applies to: Progress.Collections.SortedSet class
+
+See also
+
+ Generic type reference
+
+
+
+
+IsEmpty property (Collections)
+
+Returns TRUE if the collection has no elements. Otherwise returns FALSE.
+
+Data type: LOGICAL
+
+Access: PUBLIC Read-only
+
+Applies to: Progress.Collections.List class, Progress.Collections.SortedSet class, Progress.Collections.HashMap class, Progress.Collections.KeySet class
+
+See also
+
+ Generic type reference
+
+
+
+
+Last property (Collections)
+
+Returns the last (highest) element of the set collection, according to the
+comparer implementation (default or custom). If the collection is empty, returns the
+Unknown value (?).
+
+Data type: T
+
+Access: PUBLIC Read-only
+
+Applies to: Progress.Collections.SortedSet class
+
+See also
+
+ Generic type reference
+
+
+
+
+MapNullToEmptyString property
+
+(Windows only; GUI for.NET)
+
+Indicates whether the BindingSource returns the Unknown
+(?) value or an empty string when the value in the.NET object is null.
+If MapNullToEmptyString is set to TRUE, then the empty string is returned;
+if set to FALSE, then the Unknown (?) value is returned.
+
+Data type: LOGICAL
+
+Access: PUBLIC Readable/Writable
+
+Applies to:
+Progress.Data.BindingSource class
+
+
+
+
+NumParameters property (ParameterList)
+
+Identifies the number of parameters in a Progress.Lang.ParameterList
+object.
+
+Data type: INTEGER
+
+Access: PUBLIC
+Readable/Writable
+
+Applies to:
+Progress.Lang.ParameterList class
+
+This property can be updated, which
+has the same effect as the Clear() method (Class) of the Progress.Lang.ParameterList class in that all
+information is released. This is true even if the new number of
+parameters is the same as the previous number. The new list of parameters
+is then initialized with the new number of parameters. Each parameter
+returns to the non-set condition and cannot be used until a Progress.Lang.ParameterList:SetParameter()
+method is run on it.
+
+See also
+
+Clear() method (Class), New() method,, Progress.Lang.ParameterList class, SetParameter() method (Class)
+
+
+
+

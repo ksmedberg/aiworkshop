@@ -1,0 +1,91 @@
+Handle Attributes and Methods Reference
+
+This section contains reference entries that describe
+each handle attribute, handle method, COM object property, and COM
+object method that ABL supports. Handle attributes and methods,
+and COM object properties and methods, are all mechanisms that allow
+you to monitor and control the behavior of ABL handle-based objects
+(including widgets), system handles, and COM objects.
+
+For information on ABL widgets, see the Widget Reference.
+For information on all other handle-base objects and system handles,
+see the Handle Reference.
+For information on handle attributes and methods that apply to SpeedScript,
+see the Handle Reference.
+
+Each handle-based object has a set of attributes and methods
+(referred to generally as handle attributes and handle methods).
+Each COM object also has a set of properties and methods. This section
+describes every handle attribute and method available in ABL, but describes
+only the COM object properties and methods that directly support
+the ActiveX control container technology in ABL. All other Automation
+objects and ActiveX controls that you access from ABL provide their
+own COM object properties and methods. For more information on these
+properties and methods, see the documentation that comes with each
+COM object.
+
+In this section, names of handle attributes and methods appear
+in all-uppercase, while names of COM object properties and methods,
+which follow Visual Basic coding conventions, appear in mixed case.
+
+This section begins by explaining the syntax for handle-based
+object references. The basic syntax is similar for both handle-based
+and COM objects. However, it has been extended for COM objects to
+support the unique features of Automation objects and ActiveX controls.
+This extended syntax for COM object references follows in a separate
+section.
+
+The descriptions that follow refer to both compile-time and run-time behavior,
+features that the language generally supports and determines at compile
+time and actions directed by using these features at run time. When describing
+compile-time features or actions, this section references ABL or
+the ABL compiler. When describing ABL-directed actions taken at
+run time, this section references the ABL Virtual Machine (AVM).
+
+Note:
+
+In character interfaces, all handle attributes and methods that reference pixels (for
+example, the HEIGHT-PIXELS attribute and the GET-TEXT-HEIGHT-PIXELS method) use a system
+default pixel value for the equivalent value in characters.
+
+Properties and methods of classes are conceptually analogous to but different from either
+handle attributes and methods or COM object properties and methods. Class-based properties
+and methods participate in class hierarchies that you typically define, extend, and
+instantiate as objects of a user-defined class or interface type. All handle attributes and
+methods are associated with ABL handle-based objects, and are entirely defined and made
+available by ABL. COM object properties and methods are associated with pre-defined COM
+objects (Automation objects and ActiveX controls). The syntax for accessing all types of
+attributes, methods, and properties is very similar, but differ depending on the type of
+object with which they are associated. This section describes how to access the attributes,
+properties, and methods of respective ABL handle-based objects and COM objects only. For
+more information on accessing properties and methods of a class-based object, see the Class-based property access and Class-based method call reference entries.
+
+
+
+
+Accessing handle attributes and methods
+
+A handle attribute is a value that defines
+a visible, functional, and other characteristic of an ABL handle-based
+object. System handles also have attributes that describe and control
+certain handle-based object or system states. Attributes can be
+readable, writeable, or both. Readable means that your code can
+assign the value of the attribute to a variable or reference its
+value in an expression. Writeable means that your code can change
+the value of an attribute and thereby change the associated characteristic
+of the object or system state. Whether or not an attribute is readable
+or writeable depends on a number of factors (for example, the widget
+type, system handle type, widget realization, etc.).
+
+A handle method is a specialized function associated
+with an ABL handle-based object that performs an action on the object,
+or alters the behavior of the object. Some system handles also have
+methods that affect certain widget and system behaviors. All methods
+return a value and some methods require parameters. The return value
+usually is a logical value specifying whether or not the execution
+of the method was successful. However, some methods return other
+types of information.
+
+
+
+

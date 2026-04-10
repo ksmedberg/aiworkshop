@@ -1,0 +1,595 @@
+CREATE CLIENT-PRINCIPAL statement
+
+Creates an instance of a client-principal object
+at run time in the INITIAL state (see the LOGIN-STATE attribute entry).
+Each client-principal instance is a security token that contains
+user credentials specific to one user login session. This login
+session can be used to set the user identity for one or more ABL
+sessions, one or more database connections, or an entire ABL application.
+This user identity must be defined in a security domain that is
+registered in a trusted domain registry that is used to authenticate
+or validate that identity.
+
+Note: You use a client-principal
+object with the SET-CLIENT() method or SET-DB-CLIENT function
+to set the user identity for an ABL session or OpenEdge database.
+You can set only one user identity at any one point in time for
+each ABL session or database connection. However, you can maintain multiple
+client-principal instances for any number of user identities that
+you need to set and maintain during an application.
+
+Syntax
+
+client-principal-handle: A variable of type HANDLE that contains the handle to the client-principal
+    object.
+
+IN WIDGET-POOL widget-pool-name: An expression of type CHARACTER that evaluates, at run time, to the name of the widget
+    pool in which the client-principal is created.
+
+    Note: Widget pool names are
+    not case sensitive.
+
+ To use a client-principal object in the INITIAL state, you must set
+  the required attributes to store the user's credentials and provide
+  access to a domain registry that you trust to authenticate or validate
+  the identity it represents for the ABL session or a database connection:
+• The local domain registry for a database connection is automatically
+    loaded by OpenEdge and available to verify any identity assigned
+    to the connection. Using OpenEdge data administration tools, you
+    can also configure the OpenEdge database to ignore its local domain
+    registry after the initial connection is established, and use the
+    ABL session domain registry to securely set its connection identity.
+    This allows multiple database connections to share a single domain
+    registry to validate and set their connection identities
+• You can use the LOAD-DOMAINS() method on the SECURITY-POLICY
+    system handle to load the ABL session domain registry from the local
+    domain registry of a connected OpenEdge database. This automatically
+    prevents the registration or loading of domains from outside the
+    this database, but enables all database connections to share the
+    same registry built from a single connected database. This method
+    creates a session domain registry that can be used to authenticate
+    or validate identity for both multi-tenant and non-multi-tenant
+    database connections.
+• If you have not already loaded the ABL session registry using LOAD-DOMAINS(),
+    you can use the REGISTER-DOMAIN() method on the SECURITY-POLICY
+    system handle to register and load domains individually into the
+    session domain registry. You can then prevent additional domains
+    from being loaded into the session registry using the LOCK-REGISTRATION()
+    method on the SECURITY-POLICY system handle. An ABL session domain
+    registry loaded and locked using REGISTER-DOMAIN() and LOCK-REGISTRATION()
+    does not allow you to authenticate or validate identity for multi-tenant
+    database connections. These methods only allow you to build a session
+    domain registry that can be shared among non-multi-tenant database
+    connections.
+ If you do not specify a widget pool name, the object is created
+  in the Session unnamed widget pool (not in the closest unnamed widget
+  pool). The object goes away when its widget pool goes away or when
+  you delete it using the DELETE OBJECT statement.
+
+See also
+
+Client-principal object handle, LOAD-DOMAINS() method, LOCK-REGISTRATION() method, REGISTER-DOMAIN() method, SET-CLIENT() method, SET-DB-CLIENT function
+
+
+
+
+ENCODE function
+
+Encodes a source character string and returns
+the encoded character string result.
+
+Syntax
+
+expression: An expression that results in a character string value. If you
+    use a constant, you must enclose it in quotation marks (" ").
+
+Example
+
+This
+procedure uses the ENCODE function to disguise a password that the user
+enters, and then displays the encoded password:
+
+r-encode.p
+
+Notes
+
+ You
+  can use the ENCODE function to encode a string that contains double-byte
+  characters.
+ The ENCODE function performs a one-way encoding operation that you
+  cannot reverse. It is useful for storing scrambled copies of passwords in
+  a database. It is impossible to determine the original password
+  by examining the database. However, a procedure can prompt a user
+  for a password, encode it, and compare the result with the stored,
+  encoded password to determine if the user supplied the correct password.
+ In order to ensure reliable results, the original encoding and
+  any subsequent encoded comparisons must run in the same code page.
+  In environments with multiple code pages, Progress Software Corporation strongly recommends
+  that programs use the CODEPAGE-CONVERT function so that occurrences
+  of the ENCODE function related to the same strings run in the same
+  code page.
+ The output of the ENCODE function is 16 characters long. Make
+  sure the target field size is at least 16 characters long.
+
+
+
+
+ENCRYPT function
+
+Converts source data into a particular format, and returns a MEMPTR containing the
+encrypted data (a binary byte stream).
+
+You must use the same cryptographic algorithm, initialization
+vector, and encryption key values to encrypt and decrypt the same data instance.
+
+Syntax
+
+Note: The tag and aad
+parameters are applicable only to the AESGCM128,
+AESGCM192 and AESGCM256 encryption
+algorithms. They are not applicable to other supported encryption algorithms.
+
+data-to-encrypt: The source data to encrypt. The value may be of type
+    CHARACTER, LONGCHAR, RAW, or MEMPTR.
+
+encrypt-key: An optional RAW expression that evaluates to the name of the
+    encryption key (a binary value) to use in encrypting the specified data. If
+    you specify the Unknown value (?), the
+    current value of the SYMMETRIC-ENCRYPTION-KEY attribute is
+    used. If the value of the SYMMETRIC-ENCRYPTION-KEY
+    attribute is also the Unknown value (?),
+    the AVM generates a run-time error.
+
+    You can generate this
+    encryption key, based on the PKCS#5/RFC 2898 standard, by using either
+    the GENERATE-PBE-KEY function or the GENERATE-RANDOM-KEY function.
+
+    Note: If you use the
+    GENERATE-RANDOM-KEY function to generate an
+    encryption key, be sure to invoke the function before invoking the
+    ENCRYPT function (not within the
+    ENCRYPT function, which would render the key
+    irretrievable).
+
+    The AVM compares the size of
+    the specified encryption key to the key size specified by the
+    cryptographic algorithm. If the key sizes are inconsistent, the AVM
+    generates a run-time error.
+
+    You are responsible
+    for generating, storing, and transporting this value.
+
+iv-value: An optional RAW expression that evaluates to an
+    initialization vector value to use with the specified encryption key in the
+    encryption operation. Using an initialization vector value increases the
+    strength of the specified encryption key (that is, it makes the key more
+    unpredictable). If you specify the Unknown value (?), the current value of the
+    SYMMETRIC-ENCRYPTION-IV attribute is used.
+
+algorithm: An optional CHARACTER expression that evaluates to the name
+    of the symmetric cryptographic algorithm to use in encrypting the specified
+    data instance. If you specify the Unknown value (?), the current value of the
+    SYMMETRIC-ENCRYPTION-ALGORITHM attribute is used.
+
+    For a list the supported cryptographic algorithms, see
+    the SYMMETRIC-SUPPORT attribute
+    reference entry.
+
+tag (Authentication Tag): For AES\GCM encryption, a mandatory MEMPTR expression of a
+    cryptographic checksum generated on the unencrypted data and additional
+    authenticated data. It is designed to reveal both accidental errors and the
+    intentional modification of the data.
+
+aad (Additional Authenticated Data): For AES\GCM encryption, an optional RAW expression of input
+    data that is authenticated but not encrypted.
+
+See also
+
+DECRYPT function, SECURITY-POLICY system handle
+
+
+
+
+GENERATE-PBE-KEY function
+
+Generates a password-based encryption key,
+based on the PKCS#5/RFC 2898 standard, and returns the key as a
+RAW value.
+
+Syntax
+
+password: The password (a binary value) to use in generating the encryption key.
+    This value may be of type CHARACTER, LONGCHAR, RAW, or MEMPTR. If
+    the password contains a CHARACTER or LONGCHAR value, the AVM converts
+    it to UTF-8 (which ensures a consistent value regardless of code
+    page settings) before using it to generate the encryption key. To
+    avoid this automatic conversion, specify a RAW or MEMPTR value.
+    If you specify the Unknown value (?), the result is the Unknown value (?).
+
+salt: An optional RAW expression that evaluates to the salt value
+    (a random series of 8 bytes) to use in generating the encryption
+    key. If you specify the Unknown value (?), the current
+    value of the ENCRYPTION-SALT attribute is used. If no salt value
+    is specified in the ENCRYPTION-SALT attribute, no salt value is
+    used.
+
+    You can also use the GENERATE-PBE-SALT function to generate
+    a salt value, which can help to ensure that the password key value
+    is unique.
+
+    If specified, this salt value is combined with
+    the password value and hashed some number of times to generate a
+    password-based encryption key (using the algorithm specified by
+    the PBE-HASH-ALGORITHM attribute and the number of iterations specified
+    by the PBE-KEY-ROUNDS attribute).
+
+Notes
+
+ You
+  are responsible for generating, storing, and transporting these
+  values.
+ The size of the generated encryption key is determined by the
+  cryptographic algorithm specified by the SYMMETRIC-ENCRYPTION-ALGORITHM
+  attribute.
+ Before invoking this function, be sure to set the PBE-HASH-ALGORITHM
+  attribute to the name of the hash algorithm to use.
+ If you call this function multiple times with the same password
+  string, hash algorithm, number of iterations, and salt value, the
+  same binary key is generated each time.
+
+See also
+
+GENERATE-PBE-SALT function, GENERATE-RANDOM-KEY function, MESSAGE-DIGEST function, SECURITY-POLICY system handle
+
+
+
+
+GENERATE-PBE-SALT function
+
+Generates a random salt value (a series of
+8 bytes) to use in generating an encryption key, and returns the
+salt value as a RAW value. Using a salt value can help to ensure
+that a password key value is unique.
+
+Syntax
+
+Notes
+
+ This
+  salt value is combined with a password value and hashed some number
+  of times to generate a password-based encryption key (using the
+  algorithm specified by the PBE-HASH-ALGORITHM attribute and the
+  number of iterations specified by the PBE-KEY-ROUNDS attribute).
+ You are responsible for generating, storing, and transporting
+  this value.
+
+See also
+
+GENERATE-PBE-KEY function, MESSAGE-DIGEST function, SECURITY-POLICY system handle
+
+
+
+
+GENERATE-RANDOM-KEY function
+
+Generates a pseudorandom (rather than a truly random)
+series of bytes to use as an encryption key, and returns the key
+as a RAW value.
+
+Syntax
+
+Notes
+
+ You
+  are responsible for generating, storing, and transporting this value.
+ The size of the generated encryption key is determined by the
+  cryptographic algorithm specified by the SYMMETRIC-ENCRYPTION-ALGORITHM
+  attribute.
+• The Alternate Random Number Generator (-rand)
+  startup parameter setting has no effect on this function.
+
+See also
+
+GENERATE-PBE-KEY function, SECURITY-POLICY system handle
+
+
+
+
+MD5-DIGEST function
+
+Hashes the specified data using the RSA Message Digest Hash Algorithm (MD5), and returns a 16-byte binary message digest value as a RAW value.
+
+Note: This function is provided for backward compatibility only and
+should not be used in new development. Existing applications and data storage should migrate
+away from this function as soon as possible.
+
+Syntax
+
+data-to-hash: The source data to hash. The data may be of type CHARACTER, LONGCHAR,
+    RAW, or MEMPTR. If the data is a CHARACTER or LONGCHAR value, the
+    AVM converts it to UTF-8 (which ensures a consistent value regardless
+    of code page settings). To avoid this automatic conversion, specify
+    a RAW or MEMPTR value.
+
+hash-key: An optional key value to use in the hash operation. The key
+    may be of type CHARACTER, LONGCHAR, RAW, or MEMPTR. If the key is a
+    CHARACTER or LONGCHAR value, the AVM converts it to UTF-8 (which
+    ensures a consistent value regardless of code page settings). To avoid
+    this automatic conversion, specify a RAW or MEMPTR value. This key
+    value is combined with the source data before the hash operation begins.
+
+    If either data-to-hash or hash-key is the Unknown value (?), then the Unknown value (?) is
+    returned from the function.
+
+    If
+    the hash-key value contains a null character, the
+    null character is included in the hash operation.
+
+See also
+
+MESSAGE-DIGEST function, SHA1-DIGEST function
+
+
+
+
+SETUSERID function
+
+Authenticates a user identity for a specified database connection, verifying
+that the user ID and password supplied to the SETUSERID function match a user account in the
+User table of the database. (This restriction does not
+apply to authentication with an STS-enabled database. See notes below for more information.)
+If they match, the database connection is set to the specified user identity and the
+function returns a TRUE value. If the database is multi-tenant, is also sets the user's
+tenancy.
+
+If
+the user ID is not in the User table or the password
+is incorrect, SETUSERID returns a FALSE value and does not assign
+the user identity to the database connection. You can also check
+the ERROR-STATUS system handle for any messages returned.
+
+Note:
+
+Using this function overrides user identity previously set for the database connection by
+either the SECURITY-POLICY:SET-CLIENT() method or the SET-DB-CLIENT function.
+
+This function authenticates user identities only against user accounts defined in the
+User table of a connected OpenEdge RDBMS. To authenticate against
+additional OpenEdge-supported and application-defined authentication systems, use the
+SET-CLIENT() method or the SET-DB-CLIENT function, instead.
+
+Syntax
+
+userid: A literal value, field name, variable name, or expression
+    that results in a character value that represents the user's user
+    ID. If you use a literal value, you must enclose it in quotation
+    marks ("").
+
+    If the user is defined in a non-default
+    domain, this value must be a fully qualified user ID, including
+    both the non-qualified user ID and domain separated by a domain
+    delimiter (@). If the user is defined in the default
+    (blank) domain, only a non-qualified user ID (without a domain delimiter)
+    must be specified. For more information on specifying a fully qualified
+    user ID, see the reference entry for the QUALIFIED-USER-ID attribute.
+
+    Note: The default blank domain
+    provides backward compatibility with OpenEdge releases that do
+    not support domains as part of a user's identity.
+
+password: A literal value, field name, variable name, or other character expression
+    that results in a character value that represents the user's password.
+    If you use a literal value, you must enclose it in quotation marks ("").
+
+    Alternatively, you can encode the password using the ENCRYPT-AUDIT-MAC-KEY() method. For
+    more information, see Password encoding in OpenEdge Programming Interfaces.
+
+logical-dbname: The logical name of the database on whose connection you want
+    to check and set the user identity. The logical database name must
+    be a character string enclosed in quotes, or a character expression.
+    If you do not specify this argument, the compiler inserts the name
+    of the database that is connected when the procedure is compiled.
+    If you omit this argument and more than one database is connected,
+    ABL raises an error.
+
+Notes
+
+ Within
+  a transaction on a:
+• Multi-tenant database — Any attempt
+    to set an identity for the connection that changes the current database tenancy
+    raises a run-time error.
+• Non-multi-tenant database — As a best practice, Progress
+    Software recommends that you not set a new identity for the
+    connection.
+ To assign a user identity while making a database connection,
+  use the CONNECT statement.
+ After a user identity is set for a database connection, the
+  AVM uses that identity to determine if the user has permission to
+  access tables and fields in that particular database.
+ This function has the following restrictions:
+• It does not generate any audit events, such as for login and
+    logout.
+• It can change the user identity for only one database connection at
+    a time.
+• The domain of the user identity you want to set must be configured
+    to use the authentication system, oeusertable.
+• The domain of the user identity you want to set must be enabled in
+    the User table of the connected database.
+
+  Note: When using an STS-enabled database, the oeusertable authentication system is not required, and accounts do not have
+  to be in the User table.
+ Under the following conditions, the SETUSERID function returns
+  a value of FALSE and does not assign a user identity to the user:
+• There are no entries in the User table.
+• There is no User record with the same user
+    ID as the one supplied with the SETUSERID function.
+• The password supplied with the SETUSERID function does not match
+    the password in the User table record of the specified
+    user ID.
+ When using the SETUSERID function, ABL returns a compiler error under
+  the following conditions:
+• There is no database connected.
+• The logical-dbname argument is omitted, and
+    more than one database is currently connected.
+ When specifying the logical-dbname argument,
+  you must provide the name of the logical database, not the physical database.
+ SETUSERID encodes the password argument and
+  then compares the result with the value stored in the User.password field
+  of the User table.
+ After SETUSERID returns a value of TRUE and assigns the authenticated
+  user ID to a database connection:
+• ABL uses that user ID when
+    the user compiles procedures.
+• Subsequent invocations of the USERID function for the same database
+    connection return the assigned user ID.
+ If the root user ID does not exist in the User table,
+  SETUSERID returns a value of FALSE when supplied with a userid of
+  root. If the _User table does have a root entry,
+  the user who assumes that user ID has all the privileges associated
+  with the root user ID on UNIX.
+ You must create and enable a blank user ID ("") if
+  you want to set the user ID to a null value.
+ See Learn about Identity Management, OpenEdge Programming Interfaces, and Manage
+  the OpenEdge Database for more information on user privileges.
+ Once an initial database connection is established, you can
+  also use the SET-CLIENT() method (on
+  the SECURITY-POLICY system handle) or the SET-DB-CLIENT function to set the user identity for the connection.
+ Any database connection whose user identity is set using this
+  function locks out the SET-CLIENT() method from setting
+  an identity for that connection. To unlock and allow the SET-CLIENT()
+  method to set the identity for a locked database connection, call
+  the SET-DB-CLIENT function for the connection, passing the Unknown value (?) for
+  its client-principal-handle parameter. This unlocking
+  of a database connection leaves the current connection identity
+  unchanged.
+ For each user identity authenticated by the SETUSERID function,
+  the function creates a sealed security token containing the user
+  credentials for the database connection, which you can return as
+  a client-principal object using the GET-DB-CLIENT function. You can then use this sealed client-principal in
+  a single sign-on (SSO) operation to set the identity of another
+  database connection or ABL session.
+ This function returns FALSE and with messages returned in the ERROR-STATUS system handle if:
+• The format of the non-qualified user
+    ID or domain name is invalid or the value has contains characters
+    outside of the restricted user ID or domain name character sets
+    (see the QUALIFIED-USER-ID attribute entry)
+• Multiple databases are connected and logical-dbname is
+    not passed or resolves to the Unknown value (?)
+• Multiple databases are connected and logical-dbname does
+    not refer to a connected database
+• This function does not attempt set the connection identity for
+  the foreign data source of a DataServer connection. However, it
+  does attempt to set the connection identity for the OpenEdge schema
+  holder database.
+
+See also
+
+Client-principal object handle, CONNECT statement, ENCRYPT-AUDIT-MAC-KEY() method, SET-CLIENT() method, SET-DB-CLIENT function, USERID function
+
+
+
+
+SHA1-DIGEST function
+
+Hashes the specified data using the United States Government Secure Hash
+Algorithm (SHA-1), and returns a 20-byte binary message digest value as a RAW value.
+
+Note: This function is provided for backward compatibility only and should
+not be used in new development. Existing applications and data storage should migrate away
+from this function as soon as possible.
+
+Syntax
+
+data-to-hash: The source data to hash. The data may be of type CHARACTER, LONGCHAR,
+    RAW, or MEMPTR. If the data is a CHARACTER or LONGCHAR value, the
+    AVM converts it to UTF-8 (which ensures a consistent value regardless
+    of code page settings). To avoid this automatic conversion, specify
+    a RAW or MEMPTR value.
+
+hash-key: An optional key value to use in the hash operation. The key
+    may be of type CHARACTER, LONGCHAR, RAW, or MEMPTR. If the key is a
+    CHARACTER or LONGCHAR value, the AVM converts it to UTF-8 (which
+    ensures a consistent value regardless of code page settings). To avoid
+    this automatic conversion, specify a RAW or MEMPTR value. This key
+    value is combined with the source data before the hash operation begins.
+
+    If either data-to-hash or hash-key is the Unknown value (?), then the Unknown value (?) is
+    returned from the function.
+
+    If
+    the hash-key value contains a null character, the
+    null character is included in the hash operation.
+
+Note: This function is not compatible with HMAC-SHA-1.
+
+See also
+
+MD5-DIGEST function, MESSAGE-DIGEST function
+
+
+
+
+USERID function
+
+Returns a character string representing the
+user ID for the specified database connection identity.
+
+Syntax
+
+logical-dbname: The logical name of the database from whose connection identity
+    you want to retrieve the user ID. The logical database name must
+    be a character string enclosed in quotes, or a character expression.
+    If you do not specify this argument, the compiler inserts the name
+    of the database that is connected when the procedure is compiled.
+    If you omit this argument and more than one database is connected,
+    ABL raises an error.
+
+Example
+
+This
+one-line procedure displays the current user ID for the database
+with the DICTDB alias:
+
+r-userid.p
+
+Notes
+
+ The
+  user ID returned by this function can be set for a database connection
+  identity that is specified on the command line or when executing
+  the CONNECT statement,
+  the SECURITY-POLICY:SET-CLIENT() method,
+  the SET-DB-CLIENT function, or the SETUSERID function.
+ For a single-tenant database connection, the user ID returned
+  by the USERID function is non-qualified; for a multi-tenant database
+  connection, it is fully qualified, as shown in the following table.
+
+  Table 1. Values returned from the USERID function
+
+  The user ID returned by this function is always
+  consistent with the user ID used in database identity audit trails,
+  as well as for applying ABL table and field permissions and ABL
+  Security Administrator rights.
+ When using the USERID function, ABL returns a compiler error under
+  the following conditions:
+• There is no database connected
+• You omit the logical-dbname argument and
+    more than one database is currently connected
+ When specifying the logical-dbname argument,
+  you must provide the name of the logical database, not the physical database.
+ After ABL starts running, you can use the SET-CLIENT()
+  method, the SET-DB-CLIENT function, or the SETUSERID function to
+  change the current user ID associated with an existing database
+  connection.
+ ABL user IDs in _User table accounts are case insensitive.
+• See Learn about Identity Management, OpenEdge Programming Interfaces, and Manage
+  the OpenEdge Database for more information on user identity.
+
+See also
+
+CAN-DO function, CONNECT statement, QUALIFIED-USER-ID attribute, SET-CLIENT() method, SET-DB-CLIENT function, SETUSERID function, USER-ID attribute
+
+
+
+

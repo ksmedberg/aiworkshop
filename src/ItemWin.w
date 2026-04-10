@@ -39,9 +39,6 @@ CREATE WIDGET-POOL.
 
 /* Local Variable Definitions ---                                       */
 
-USING business.ItemEntity FROM PROPATH.
-USING business.EntityFactory FROM PROPATH.
-
 {business/ItemDataset.i}
 
 /* _UIB-CODE-BLOCK-END */
@@ -223,8 +220,8 @@ END.
 &ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL BUTTON-3 C-Win
 ON CHOOSE OF BUTTON-3 IN FRAME DEFAULT-FRAME /* Get Item */
 DO:
-  VAR EntityFactory objFactory = EntityFactory:GetInstance().
-  VAR ItemEntity objItemEntity = objFactory:GetItemEntity().
+  VAR business.EntityFactory objFactory = business.EntityFactory:GetInstance().
+  VAR business.ItemEntity objItemEntity = objFactory:GetItemEntity().
   VAR LOGICAL lFound.
 
   ASSIGN FILL-IN_ItemNum.
@@ -250,8 +247,8 @@ END.
 &ANALYZE-SUSPEND _UIB-CODE-BLOCK _CONTROL BUTTON-4 C-Win
 ON CHOOSE OF BUTTON-4 IN FRAME DEFAULT-FRAME /* Save */
 DO:
-  VAR EntityFactory objFactory = EntityFactory:GetInstance().
-  VAR ItemEntity objItemEntity = objFactory:GetItemEntity().
+  VAR business.EntityFactory objFactory = business.EntityFactory:GetInstance().
+  VAR business.ItemEntity objItemEntity = objFactory:GetItemEntity().
   VAR LOGICAL lFound.
   VAR LOGICAL isValid.
   VAR CHARACTER cErrorMessage.

@@ -1,0 +1,110 @@
+CREATE SAX-ATTRIBUTES statement
+
+Creates an instance of a SAX-attributes object and assigns its handle to the handle variable specified. Use this object to access and manage the attribute list for an XML element either being read or written with the SAX-reader or SAX-writer object.
+
+Syntax
+
+handle: Variable of type HANDLE which stores the handle of the new SAX-attributes
+    object.
+
+IN WIDGET-POOL pool-name: Specifies the widget pool where the AVM creates the new object.
+    If you do not specify a widget pool, the AVM creates the object
+    in the current default widget pool.
+
+NO-ERROR: The NO-ERROR option is used to prevent the
+    statement from raising ERROR and displaying error messages.
+
+In ABL, a SAX-attributes object can be automatically created and managed by
+the SAX parser, or programatically created and managed by you. Automatic SAX-attributes
+objects are created, populated, and destroyed during the scope of the startElement callback
+procedure. The startElement callback is called by the SAX-reader object each time the SAX
+parser encounters new XML element during a read operation. The SAX parser populates the
+SAX-attributes object, but you may interact with the object during the scope of the
+startElement callback procedure. For example, you may add elements, update elements, and
+remove elements from the SAX-attributes object.
+
+At the conclusion of the callback, the SAX-attributes object is deleted and
+your access to the element list is lost. To save the XML attributes list, you would need to
+create another SAX-attributes object that is not tied to the scope of the startElement
+callback procedure. Then, from within the startElement callback, you would use the
+COPY-SAX-ATTRIBUTES() method on the new object and provide a handle to the automatically
+created SAX-attributes object.
+
+Finally, you would likely pass the XML element and its attributes to a
+SAX-writer object to concurrently build a new XML document while reading the source XML
+document.
+
+Example
+
+The
+following code snippets assembled form one complete example of a concurrent
+XML read and write operation. The first snippet shows the main block
+of code:
+
+This snippet contains the callbacks for starting
+and ending a document read. Note that embedded in the steps of the
+read operation are the corresponding steps for a concurrent write
+operation:
+
+The startElement callback does most of the processing.
+Depending on the values being read by SAX-reader, the callback decides
+what to write to the new XML document:
+
+The last snippet completes the set of callback
+procedures needed for this example:
+
+See also
+
+NO-ERROR option,
+SAX-attributes object handle
+
+
+
+
+CREATE SAX-READER statement
+
+Creates an instance of a SAX-reader object and assigns its handle to the handle variable you specify. The SAX-reader object can be used to control the parsing of XML source.
+
+Syntax
+
+handle: A variable of type HANDLE into which CREATE SAX-READER stores
+    the new handle.
+
+IN WIDGET-POOL pool-name: A CHARACTER expression indicating the widget pool in which the object
+    is created. If you do not specify a widget pool, the object is created in
+    the current default widget pool.
+
+NO-ERROR: The NO-ERROR option is used to prevent the
+    statement from raising ERROR and displaying error messages.
+
+See also
+
+NO-ERROR option,
+SAX-reader object handle
+
+
+
+
+CREATE SAX-WRITER statement
+
+Creates an instance of a SAX-writer object and assigns its handle to the handle variable specified. Use this object to write an XML document using the SAX interface.
+
+Syntax
+
+handle: Variable of type HANDLE which stores the handle of the new SAX-writer
+    object.
+
+IN WIDGET-POOL pool-name: Specifies the widget pool where the AVM creates the new object.
+    If you do not specify a widget pool, the AVM creates the object
+    in the current default widget pool.
+
+NO-ERROR: The NO-ERROR option is used to prevent the
+    statement from raising ERROR and displaying error messages.
+
+See also
+
+NO-ERROR option, SAX-writer object handle
+
+
+
+
